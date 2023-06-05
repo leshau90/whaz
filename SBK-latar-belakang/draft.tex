@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[bahasa]{babel}
+
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+\usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+% \addbibresource{main.bib}
+\usepackage{usebib}
+\usepackage{indentfirst}
+\bibinput{main}
+\graphicspath{ {./images/} }
+\title{Seminar BIdang Kajian: Bab 1 & Jurnal }
+
+\begin{document}
+
+\section*{Judul}
+Integrasi SSO pada Universitas X menggunakan \emph{Actix Web-Framework}
+\section*{Abstrak}
+Penelitian ini difokuskan pada implementasi sistem Single Sign-On (SSO) di Universitas X, mengintegrasikannya dengan sistem-sistem yang sudah yang setiap satunya menggunakan \emph{web framework} berbeda. Studi ini bertujuan untuk menguraikan konstruksi sistem SSO dan mengevaluasi kinerjanya serta keamanannya.
+Penelitian ini bertujuan untuk membangun Universitas X dengan sistem SSO yang handal dan efisien serta mengintegrasikannya dengan berbagai sistem yang telah ada sebelumnya. Dengan mengevaluasi kinerja dan aspek keamanan dari implementasi SSO yang terintegrasi, studi ini berupaya untuk memberikan sumbangan bagi peningkatan infrastruktur digital universitas, sambil juga memberikan wawasan dan rekomendasi yang dapat diterapkan pada implementasi SSO serupa di institusi pendidikan lainnya.
+
+\section{Pendahuluan}
+\subsection{Latar Belakang}
+
+Integrasi sistem yang ada di Universitas X menjadi suatu kebutuhan penting. Sistem-sistem tersebut telah dibangun dengan menggunakan berbagai kerangka kerja web yang berbeda. Dalam konteks ini, penggunaan sistem Single Sign-On (SSO) menjadi krusial untuk mengintegrasikan sistem-sistem tersebut. SSO memungkinkan pengguna untuk melakukan otentikasi sekali saja dan mengakses berbagai sistem secara otomatis tanpa perlu memasukkan kredensial login berulang kali\cite{sciarretta2020formal}.
+
+Implementasi SSO memiliki nilai penting dalam lingkungan universitas. Selain memudahkan pengguna dengan mengurangi jumlah kredensial login yang harus diingat, SSO juga meningkatkan efisiensi dengan mengurangi waktu dan upaya yang diperlukan untuk beralih antara sistem-sistem yang ada. Namun, mengintegrasikan sistem-sistem yang dibangun dengan beragam kerangka kerja web dapat menjadi tantangan tersendiri.
+
+Dalam penelitian ini, Universitas X akan menggunakan framework Actix Web Server dalam bentuk API untuk mengimplementasikan sistem SSO. Actix, yang menggunakan bahasa pemrograman Rust, dipilih karena keamanan memori yang kuat dan kecepatan yang hampir setara dengan bahasa pemrograman sistem seperti C dan C++. Keamanan memori yang baik dan kinerja yang cepat menjadi faktor penting dalam membangun sistem SSO yang andal dan efisien\cite{kyriakou2022complementing}.
+
+Selain itu, penelitian ini juga akan mengevaluasi performa sistem SSO yang diimplementasikan. Evaluasi kinerja akan dilakukan melalui skenario beban stres, di mana akan diukur waktu respons API untuk setiap permintaan yang masuk. Metode ini akan memberikan pemahaman yang lebih baik tentang kemampuan sistem SSO dalam menangani beban kerja yang tinggi serta memberikan waktu respons yang optimal bagi pengguna.
+
+Keamanan merupakan hal yang sangat penting dalam sebuah sistem web. Data dari Kementerian Komunikasi dan Informatika menunjukkan bahwa serangan siber terhadap situs web perusahaan di Indonesia meningkat 31\% dari tahun 2020 hingga 2021, dari 206 serangan menjadi 270 serangan per tahun. Kesalahan dalam menulis kode program dapat menjadi celah yang rentan terhadap serangan siber, seperti serangan injeksi SQL, otentikasi, dan XSS (cross-site scripting). Data dari webappsec.org pada tahun 2021 menunjukkan bahwa serangan XSS mencapai 43\% dan injeksi SQL sebesar 6\% . Serangan siber atau peretas dapat melakukan tindakan berbahaya seperti mencuri data berharga. Oleh karena itu, sangat penting untuk menguji keamanan sebuah situs web guna mengetahui tingkat kerentanan fitur-fitur aplikasi di dalamnya, sehingga situs web tersebut dapat tahan terhadap upaya serangan siber. Dalam konteks universitas, praktek keamanan yang ketat juga sangat dibutuhkan untuk melindungi data mahasiswa, staf, dan sistem yang ada dari potensi serangan siber yang dapat mengganggu operasional universitas dan merusak reputasi institusi\cite{Priyawati2022WebsiteVT}.
+
+Tidak ketinggalan, akan dilakukan pengujian keamanan sistem SSO dengan mengacu pada OWASP Top 10. OWASP (Open Web Application Security Project) Top 10, yang adalah daftar kerentanan keamanan yang umum ditemui dalam aplikasi web. Melalui pengujian ini, akan dievaluasi tingkat keamanan sistem SSO terhadap serangan umum yang tercantum dalam daftar OWASP Top 10\cite{Priyawati2022WebsiteVT}. Hal ini penting untuk memastikan bahwa sistem SSO yang diimplementasikan di Universitas X memiliki tingkat keamanan yang memadai dan melindungi data pengguna dengan baik.
+% \titlepage
+% \newpage
+% \tableofcontents
+% \newpage
+
+\subsection{Identifikasi Masalah}
+Masalah yang teridentifikasi:
+\begin{enumerate}
+    \item Sistem-sistem pada Universitas X belum terintegrasi, sehingga membuat otentifikasi rumit, karena setiap sistem membutuhkan kredensial berbeda
+    \item Keamanan sistem yang dapat dijamin.
+    \item Optimasi sistem SSO untuk menangani beban pemakaian yang tinggi
+\end{enumerate}
+\subsection{Batasan Masalah}
+Masalah yang barusaha dijawab oleh penelitian ini akan terbatas pada:
+\begin{enumerate}
+    \item Bagaimana mengintegrasikan sistem SSO (\emph{single sign on}) dengan berbagai sistem yang telah ada sebelumnya pada universitas X?
+    \item Seberapa aman sistem SSO Universitas X yang akan dibangun?
+    \item Bagaimana performa SSO Universitas X yang akan dibangun?
+\end{enumerate}
+\subsection{Tujuan Penelitian}
+Penelitian ini bertujuan untuk:
+\begin{enumerate}
+    \item Mengintegrasikan sistem SSO Universitas X
+    \item Memberi \emph{assesment} tentang sistem SSO yang akan dibangun
+    \item Memberi \emph{assessment} tentang performa SSO yang akan dibangun
+\end{enumerate}
+\subsection{Kegunaan Penelitian}
+Kegunaan Penelitian dapat digunakan untuk  memberikan sumbangan bagi peningkatan infrastruktur digital universitas, sambil juga memberikan wawasan dan rekomendasi yang dapat diterapkan pada implementasi SSO serupa di institusi ataupun organisasi lainnya.
+
+\section*{Artikel Jurnal}
+\begin{center}
+    \begin{longtable}{|p{2.5cm}|p{2.5cm}|p{5cm}|p{5cm}|}
+        \caption{Solusi dan Masalah}
+        \label{tab:table1}\\
+        % \hline
+        % 1&2&3&4\\
+        % 3&48&6&5
+        \hline
+        Judul & Jurnal & Masalah & Solusi/Kesimpulan \\
+        \hline
+        Website Vulnerability Testing and Analysis of Website Application Using OWASP
+        & International Journal of Computer and Information System (IJCIS) 
+        & Bagaimana memberi \emph{assesment} pada tingkat keamanan sebuah website
+        & Menggunakan metode \emph{grey box pen testing} dengan OWASP-ZAP untuk memberitahukan tingkat keamanan website\\
+        \hline
+        Formal analysis of mobile multi-factor authentication with single sign-on login
+        & ACM Transactions on Privacy and Security (TOPS)
+        &  Belum adanya sebuah standar \emph{reference model}  untuk \emph{security} pada MFA\emph{(Multi Factor Authentication)} juga SSO yang mana jika akan terjadi kesalah pahaman jika menjelaskan kedua hal tersebut
+        & Sebuah model referensi yang menjelaskan MFA dan SSO dapat mencapai tingkat keamanan tertentu 
+        \\
+        \hline
+        Complementing JavaScript in High-Performance Node. js and Web Applications with Rust and WebAssembly
+        & Electronics
+        & Kurangnya Performa, Effisiensi dan performa Konkurensi, Javascript seperti juga High-level interpreted language lainnya memberi abstraksi yang baik tapi dengan trade off performance dan kurang nya pemanfaatan kapabilitas hardware.
+        & Performance Improvement: Hasil stress test menunjukan Implementasi Rust mengalahkan performa Javascript(node.js) 115 kali lipat juga 14.5 kali lebih cepat menyelesaikan test model konkurensi.
+        \\
+        \hline
+    \end{longtable}
+\end{center}
+
+\bibliographystyle{apacite}
+\bibliography{main}
+% \printbibliography
+
+
+\end{document}

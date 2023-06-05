@@ -1,0 +1,143 @@
+\documentclass{article}
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[bahasa]{babel}
+
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+\usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+% \addbibresource{main.bib}
+\usepackage{usebib}
+\bibinput{main}
+\graphicspath{ {./images/} }
+\title{Tugas Review Jurnal: Improving LAN Performance Based on IEEE802. 1Q VLAN Switching Techniques}
+\author{Ilman Samhabib 91122010\\62/MMSI/SIB}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+% \titlepage
+% \newpage
+% \tableofcontents
+% \newpage
+\section*{Analisa}
+\begin{center}
+    
+    \begin{tabular}{|p{2cm}|p{12cm}|}
+        \hline
+        Judul & Improving LAN Performance Based on IEEE802.1Q VLAN Switching Techniques\cite{al2018improving}\\
+        \hline
+        Terjemahan & 
+        Improvisasi Performa LAN dengan Berdasar pada Teknik Switching VLAN IEEE802.1Q\\
+        % \hline
+        % Pengarang & Wijaya, I Gusti Ngurah Satria; Triandini, Evi; Kabnani, Ezra Tifanie\\
+        \hline
+        doi & ???\\    
+        \hline
+        Jurnal & Journal of University of Babylon, Engineering Sciences, Vol.(26), No.(1): 2018\\
+        % \hline
+        % tahun & 2021\\    
+        \hline
+        Akreditasi & ???\\
+        \hline
+        
+    \end{tabular}
+\end{center}
+\smallbreak
+Penulis \cite{al2018improving} berargumentasi bahwa teknologi LAN dapat ditingkatkan performanya dengan 
+menggunakan konfigurasi VLAN yang tepat. 
+Sebuah LAN dengan banyak device 
+yang saling terkoneksi, 
+memiliki performa yang lebih lambat 
+tanpa menerapkan teknik \emph{switching} 
+IEEE802.1Q VLAN. 
+Teknik \emph{swithcing} ini dapat meningkatkan performa karena:
+\begin{itemize}
+    \item memperkecil/mengurangi broadcast domain, kerena pembatasan VLAN akan mengurangi jumlah \emph{devices} yang efektif saling terkoneksi dalam satu LAN
+    \item menghemat biaya/ mengurangi \emph{workload}, dengan berkurangnya ukuran LAN begitupun jumlah koneksi dengan LAN lainnya      
+\end{itemize}
+VLAN juga dapat mempermudah proses 
+manajemen LAN karena dapat mengelompokkan 
+dengan lebih tepat \emph{devices} sesuai 
+dengan penggunaannya. Pembagian ini juga meningkatkan tingkat keamanan karena lalu lintas akan terpisah menurut pembagian yang sudah ditetapkan.
+VLAN juga dinilai mudah untuk dikonfigurasi karena 
+hanya menetapkan nomor tertentu yang identik untuk \emph{port}-\emph{port} yang akan disatukan dalam sebuah LAN.
+
+Penulis membuktikan klaimnya dengan melakukan simulasi menggunakan OPNET 17.5, dengan memodelkan 2 buah jaringan. 
+Tiga buah \emph{switch} masing-masing pada skenarionya terletak pada gedung yang berbeda, 
+dihubungkan satu sama lain, begitupun dengan \emph{devices} pada gedung tertentu dihubungkan ke setiap \emph{switch} pada gedung tersebut.
+Sebuah jaringan \emph{switch-switch} tersebut bersama dalam satu LAN menggunakan IEEE802.3 protokol \emph{Ethernet LAN} (\emph{no VLAN}), 
+sedangkan \emph{switch}-\emph{switch} jaringan lainnya dikonfigurasikan dengan VLAN atau protokol IEEE802.1Q pada port-port nya dan menghubungkan \emph{devices-devices} dengan port sesuai pembagiannya. \emph{Traffic} pada jaringan pun 
+disimulasikan dengan menyerupai aplikasi EMAIL dan FTP (\emph{file transfer protocol}). Hasilnya adalah sebagai berikut:
+
+\begin{itemize}
+    \item \emph{Traffic sent} atau \emph{frame} yang dikirim antar gedung (switch), LAN dengan VLAN memiliki jumlah 
+    \emph{frame} yang terkirim lebih rendah dari pada LAN tanpa VLAN
+    \item  \emph{Traffic received} atau \emph{frame} yang diterima oleh setiap \emph{device} yang disimulasikan,  LAN dengan VLAN memiliki jumlah 
+    \emph{frame} yang diterima lebih rendah dari pyada LAN tanpa VLAN
+    \item  \emph{Average queuing delay} atau delay yang dialami per-\emph{frame}  \emph{device} 
+    yang disimulasikan karena proses antrian oleh alat \emph{switch}, 
+    LAN dengan VLAN memiliki rata-rata waktu menunggu lebih rendah dari pada LAN tanpa VLAN
+    \item \emph{Throughput} untuk setiap link antar gedung, link pada LAN dengan VLAN memiliki \emph{Throughput} lebih rendah dari pada LAN tanpa VLAN, karena \emph{broadcast domain} yang lebih kecil
+    \item \emph{Time Delay} adalah waktu jeda untuk setiap kasus simulasi lalu lintas aplikasi tertentu, 
+    untuk aplikasi dengan transfer data relatif kecil yaitu Email, tidak dapat dilihat perbedaan signifikan walau LAN tanpa VLAN lebih mengungguli Tetapi pada aplikasi dengan \emph{traffic} data besar yaitu FTP, jaringan VLAN mengungguli LAN tanpa VLAN cukup jauh, dengan perbedaan delay yang terus meningkat seiring waktu. 
+\end{itemize}
+
+\section*{Diskusi \& Pengembangan}
+Sudah menjadi pengetahuan umum, dan disebutkan dalam berbagai artikel 
+bahwa VLAN dapat meningkatkan performa jaringan secara keseluruhan, 
+karena VLAN dapat membantu mensegmentasi jaringan 
+secara baik dan mudah, secara statis.
+
+
+Seiring dengan meningkatnya penggunaan data, 
+diperlukan penentuan jaringan yang lebih adaptif menyesuaikan dengan 
+layanan yang tepat untuk aliran data dengan profil aplikasi tertentu. 
+SDN (\emph{Software Defined Network}) dan 
+OpenFlow (standarisasi peralatan jaringan yang dapat mengakomodasi fungsi SDN).
+Salah satu contoh penerapan OpenFlow dan SDN adalah untuk mengimplementasikan traffic engineering di jaringan. Traffic engineering melibatkan mengarahkan lalu lintas jaringan dengan cara yang paling efisien untuk meningkatkan kinerja dan mengurangi kemacetan.
+
+Untuk mengimplementasikan traffic 
+engineering menggunakan OpenFlow dan SDN, 
+administrator jaringan dapat membuat aturan aliran 
+(flow rules) yang menentukan bagaimana lalu lintas 
+harus diteruskan melalui jaringan. 
+Misalnya, administrator dapat membuat 
+aturan aliran yang mengarahkan lalu lintas dari aplikasi tertentu ke jalur jaringan yang memiliki bandwidth yang lebih tersedia. Hal ini dapat dilakukan dengan menentukan alamat IP sumber dan tujuan, port, dan kriteria lain dalam aturan aliran.
+
+SDN controller bertanggung jawab untuk mengelola 
+dan mengkonfigurasi aturan aliran pada perangkat jaringan, 
+seperti switch dan router / biasanya dalam jumlah banyak yang saling terkoneksi sebagai \emph{failsave}. 
+Ketika sebuah paket tiba di perangkat jaringan, 
+perangkat tersebut mengonsultasikan tabel aliran untuk menentukan cara meneruskan paket. 
+Jika aturan aliran cocok dengan paket, perangkat akan meneruskan paket sesuai dengan jalur yang ditentukan.
+Seperti yang dikatakan oleh \cite{shi2020openflow} yang membahas penentuan lalu lintas, apakah akan menjadi lalu lintas tikus (ringan) ataupun gajah (berat)
+
+Selain untuk traffic engineering, 
+OpenFlow dan SDN dapat digunakan untuk berbagai tugas manajemen jaringan lainnya, 
+seperti keamanan, load balancing, dan QoS. 
+Misalnya, sistem keamanan berbasis SDN dapat 
+mendeteksi dan memblokir ancaman jaringan secara 
+real-time dengan menggunakan aturan aliran untuk memeriksa 
+dan menyaring lalu lintas jaringan. Ataupun sebagai mekanisme \emph{recovery} dari kegagalan jaringan \cite{nurwarsito2023implementation}
+
+Untuk mengkonfigurasi OpenFlow dan SDN di jaringan, 
+administrator biasanya akan menginstal SDN controller dan perangkat jaringan yang mendukung OpenFlow, 
+kemudian menggunakan alat konfigurasi atau bahasa pemrograman seperti Python atau Java 
+untuk mendefinisikan aturan aliran dan kebijakan jaringan lainnya. 
+Administrator juga perlu menentukan topologi jaringan dan menentukan cara lalu lintas 
+harus diteruskan melalui jaringan. Setelah jaringan dikonfigurasi, 
+SDN controller akan mengelola dan menegakkan kebijakan jaringan secara real-time, 
+berdasarkan pola lalu lintas dan faktor lainnya. 
+\bibliographystyle{apacite}
+\bibliography{main}
+% \printbibliography
+
+
+\end{document}
