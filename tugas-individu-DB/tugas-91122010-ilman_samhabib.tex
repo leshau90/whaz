@@ -6,18 +6,17 @@
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{tikz}
 % \usepackage{biblatex}
 % \addbibresource{main.bib}
 \usepackage{apacite}
 \usepackage{longtable}
 % \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
 % \addbibresource{main.bib}
-\usepackage{usebib}
-
+\usepackage{usebib} 
+\usepackage{indentfirst}
 \bibinput{main}
 \graphicspath{ {./images/} }
-\title{Tugas SPK}
+\title{Tugas MSDB}
 \author{Ilman Samhabib 91122010\\62/MMSI/SIB}
 \date{\today}
 
@@ -29,22 +28,55 @@
 % \tableofcontents
 % \newpage
 \begin{center}
-    Tugas SPK
-    \\ Tema: \textbf{Programmatic Advertising} 
+    Tugas MSDB    
     \\ 991122010 62/MMSI/SIB
     \\ Ilman Samhabib
 \end{center}
 
 \subsubsection*{Nomor 1}
-Deskripsikan jumlah atribut/field 
-yang anda gunakan pada dataset. Beri penjelasan pada masing masing dataset
+Sebutkan 6 tahap  perancangan basis data!
 \bigbreak
-Data set yang digunakan dataset olist Brazilian E-commerce \cite{Olist_2018}, yoo.
+\begin{enumerate}
+    \item Pengumpulan dan analisis kebutuhan data : Mengidentifikasi kebutuhan data berdasarkan proses bisnis yang dilakukan organisasi tersebut, untuk memperjelas kebutuhan  data dan kebutuhan pmrosesan yang akan digunakan
+    \item Desain konseptual: Penggambaran kebutuhan data yang akan dibutuhkan, pengelompokan nya kedalam entitas tertentu dan bagaimana entitas tersebut saling berhubungan
+    \item Pemilihan DBMS: Pemilihan DBMS yang tepat untuk use-cases yang dihadapi perusahaan
+    \item Desain Logik: Mendefinisikan secara rinci konfigurasi data yang akan di simpan dalam DBMS, RDBMS mungkin harus menjelaskan kardinalitas dan semacamnya begitu juga normalisasi, DBMS berbeda mungkin akan memiliki konfigurasi yang berbeda 
+    \item Desain Fisik:  memetakan bagaimana desain logik akan di konfigurasi di dalam DBMS yang akan digunakan
+    \item Implemenetasi Memasukan data. maintenance, dan menghubungkannya dengan aplikasi
+\end{enumerate}
+\subsubsection*{nomor 2}
+Manakah dari 6 tahap tersebut sebagai aktifitas utama dalam proses perancangan basis data ? Mengapa ?
+\bigbreak
+yang paling krusial adalah Pengumpulan dan analisis kebutuhan data karena ini melibatkan pemahaman  bagainmana organisasi akan memproses data sehingga dapat disesuaikan kebutuhan bisnis. Eksekusi yang teliti dari tahap ini membantu menghindari kesenjangan antara desain database dan kebutuhan bisnis yang sebenarnya. Tahap ini menjadi dasar yang kuat untuk tahap-tahap selanjutnya dalam perancangan basis data. Selain itu  ini dapat mengurangi biaya implementasi dan mencegah terjadinya technological debt (kerugian biaya yang timbul karena keputusan perancnangan yang kurang tepat).
 
 
-\bibliographystyle{apacite}
-\bibliography{main}
+\subsubsection*{nomor 3}
+Mengapa perancangan skema dan aplikasi dilakukan secara parallel ?
+\bigbreak
+Karena keterkaitan antara ke duanya yang mendalam,
+Sebuah disain skema databse yang baik dapat dicapai dengan menyesuaikan rancangan  aplikasi yang tepat, dalam hal pemrosesan data dan interaksinya dengan pemakai, dan sebuah tingkatan kualitas yang harus dicapai (harus seberapa responsif aplikasi tersebut), serta berapa lama deadline untuk artefak/produk yang harus dipenuhi. 
+Mengerjakan salah satunya tanpa yang lain dapat berpotensi melakukan revisi yang terlalu banyak dan memakan waktu dalam perancangan salah satunya. 
+
+\subsubsection*{nomor 4}
+Mengapa digunakan model data implementation-independent selama perancangan skema konseptual ? 
+\bigbreak
+Model data implementation-independent digunakan selama perancangan skema konseptual digunakan karena memberikan yang baik yang dapat mengeneralisir kebutuhan pemrosesan data untuk  bisnis, ini dibutuhkan untuk lebih mempersiapkan desain pada kemungkinan-kemungkinan implementasi yang beragam, jika terikat pada suatu implementasi teknologi tertentu maka desain mungkin harus direvisi lagi dan akan memakan waktu dan biaya. Yang peling penting adalah Model pengembangan dengan cara ini juga mendukung portabilitas, fleksibilitas, dan keterpisahan antara logika bisnis dan implementasi teknis, sehingga desain acuan akan lebih siap dengan adanya perkembangan teknologi yang cepat tanpa revisi yang banyak. 
+
+\subsubsection*{nomor 5}
+Mengapa diperlukan koleksi data dan analisa kebutuhan ?
+\bigbreak
+Agar disain konseptual  yang akan dibangun berdasarkan analisa tersebut lebih akurat untuk mendeskripsikan spesifikasi/kebutuhan yang harus dipenuhi dalam tahap implementasi nantinya.
+
+\subsubsection*{nomor 6}
+Dapatkan  aplikasi actual dari suatu sistem basis data. Tentukan kebutuhan dari level pemakai yang berbeda dalam hal kebutuhan data, tipe query dan transaksi yang  diproses
+\bigbreak
+Misalnya dibutuhkan sesbuah sistem baru yang berfungsi sebagai sistem SSO/ Single Sign-On (satu login untuk semua sistem), dapat dipastikan bahwa sistem ini akan menghandle banyak koneksi unutuk memverivikasi banyak kredensial user dalam waktu bersamaan, query ini akan dilakukan  pengguna sistem lain yang terintegrasi untuk memferivikasi kredensial yang digunakan untuk setiap kali mengakses/memodifikasi data melalui sistem yang diagunakan saat ini. 
+Walau menghandle banyak koneksi sekaligus tetapi data yang perlu disimpan dan di query dari database hanyalah sepasang key value sederhana berisi username dan password saja. Sehingga tidak terlalu membutuhkan fungsi Relational Database, yang memaksakan fungsi relational pada saat pembuatan table dan queri sehingga memperlambat pembacaan data. untuk ini Kita dapat menggunakan database yang lebih teroptimasi untuk reading dan caching (dengan menggunakan in-memory database) seperti redis database, untuk meningkatkan performa, dan menyederhanakan table/koleksi dalam database yang digunakan, minimal hanya berisi username dan password.
+
+% \bibliographystyle{apacite}
+% \bibliography{main}
 % \printbibliography
 
 
 \end{document}
+
