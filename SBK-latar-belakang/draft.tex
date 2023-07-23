@@ -2,31 +2,36 @@
 
 \usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[bahasa]{babel}
+\usepackage[style=apa]{biblatex}
+\addbibresource{main.bib}
+\renewcommand\thesection{\Alph{section}.}
+% \renewcommand\thesubsection{\thesection.\Alph{subsection}}
+
 
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage{hyperref}
 % \usepackage{biblatex}
 % \addbibresource{main.bib}
-\usepackage{apacite}
+% \usepackage{apacite}
 \usepackage{longtable}
 % \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
-% \addbibresource{main.bib}
 \usepackage{usebib} 
-\usepackage{indentfirst}
 \bibinput{main}
+\usepackage{indentfirst}
 \graphicspath{ {./images/} }
 \title{Seminar BIdang Kajian: Bab 1 & Jurnal }
+
 
 \begin{document}
 
 \section*{Judul}
 Integrasi SSO pada Universitas X menggunakan \emph{Actix Web-Framework}
-\section*{Abstrak}
+\section{Abstrak}
 Penelitian ini difokuskan pada implementasi sistem Single Sign-On (SSO) di Universitas X, mengintegrasikannya dengan sistem-sistem yang sudah yang setiap satunya menggunakan \emph{web framework} berbeda. Studi ini bertujuan untuk menguraikan konstruksi sistem SSO dan mengevaluasi kinerjanya serta keamanannya.Studi ini berupaya untuk memberikan sumbangan bagi peningkatan infrastruktur digital universitas, sambil juga memberikan wawasan dan rekomendasi yang dapat diterapkan pada implementasi SSO serupa di institusi pendidikan lainnya.
 
-\section{Pendahuluan}
-\subsection{Latar Belakang}
+% \section{Pendahuluan}
+\section{Latar Belakang}
 
 Kompleksitas akses di Universitas X menjadi tantangan besar bagi pengguna. Mengakses berbagai sistem di universitas ini memerlukan pengelolaan banyak kredensial login, yang menyebabkan penurunan produktivitas dan frustrasi pengguna. Solusi satu \emph{single sign on} (SSO) menjadi krusial untuk menyederhanakan proses akses. Dengan menerapkan mekanisme tanda masuk tunggal, pengguna hanya perlu melakukan otentikasi sekali untuk mengakses berbagai sistem dengan mudah. Solusi ini bertujuan untuk menyederhanakan proses login, mengurangi jumlah kredensial yang harus diingat, dan meningkatkan pengalaman pengguna secara keseluruhan.
 
@@ -41,28 +46,28 @@ Seiring meningkatnya kebutuhan digitalisasi di Universitas X, terdapat tiga kese
 % \tableofcontents
 % \newpage
 
-\subsection{Identifikasi Masalah}
+\section{Identifikasi Masalah}
 Masalah yang teridentifikasi:
 \begin{enumerate}
     \item Sistem-sistem pada Universitas X belum terintegrasi, sehingga membuat otentifikasi rumit, karena setiap sistem membutuhkan kredensial berbeda
     \item Keamanan sistem yang dapat dijamin.
     \item Optimasi sistem SSO untuk menangani beban pemakaian yang tinggi
 \end{enumerate}
-\subsection{Batasan Masalah}
+\section{Batasan Masalah}
 Masalah yang barusaha dijawab oleh penelitian ini akan terbatas pada:
 \begin{enumerate}
     \item Bagaimana mengintegrasikan sistem SSO (\emph{single sign on}) dengan berbagai sistem yang telah ada sebelumnya pada universitas X?
     \item Seberapa aman sistem SSO Universitas X yang akan dibangun?
     \item Bagaimana performa SSO Universitas X yang akan dibangun?
 \end{enumerate}
-\subsection{Tujuan Penelitian}
+\section{Tujuan Penelitian}
 Penelitian ini bertujuan untuk:
 \begin{enumerate}
     \item Mengintegrasikan sistem SSO Universitas X
     \item Memberi \emph{assesment} tentang sistem SSO yang akan dibangun
     \item Memberi \emph{assessment} tentang performa SSO yang akan dibangun
 \end{enumerate}
-\subsection{Kegunaan Penelitian}
+\section{Kegunaan Penelitian}
 Kegunaan Penelitian dapat digunakan untuk  memberikan sumbangan bagi peningkatan infrastruktur digital universitas, sambil juga memberikan wawasan dan rekomendasi yang dapat diterapkan pada implementasi SSO serupa di institusi ataupun organisasi lainnya.
 % \subsection{Metode Penelitian}
 % Penelitian ini akan menggunakan langkah yang sering diterapkan pada \emph{design research}
@@ -77,39 +82,39 @@ Kegunaan Penelitian dapat digunakan untuk  memberikan sumbangan bagi peningkatan
 % \end{enumerate}
 
 \section{Tinjauan Pustaka}
-Integrasi sistem yang ada di Universitas X menjadi suatu kebutuhan penting. Sistem-sistem tersebut telah dibangun dengan menggunakan berbagai kerangka kerja web yang berbeda. Dalam konteks ini, penggunaan sistem Single Sign-On (SSO) menjadi krusial untuk mengintegrasikan sistem-sistem tersebut. SSO memungkinkan pengguna untuk melakukan otentikasi sekali saja dan mengakses berbagai sistem secara otomatis tanpa perlu memasukkan kredensial login berulang kali\cite{ComparativeAnaWaluyo2022}.
+Integrasi sistem yang ada di Universitas X menjadi suatu kebutuhan penting. Sistem-sistem tersebut telah dibangun dengan menggunakan berbagai kerangka kerja web yang berbeda. Dalam konteks ini, penggunaan sistem Single Sign-On (SSO) menjadi krusial untuk mengintegrasikan sistem-sistem tersebut. SSO memungkinkan pengguna untuk melakukan otentikasi sekali saja dan mengakses berbagai sistem secara otomatis tanpa perlu memasukkan kredensial login berulang kali\autocite{ComparativeAnaWaluyo2022}.
 
 Implementasi SSO memiliki nilai penting dalam lingkungan universitas. Selain memudahkan pengguna dengan mengurangi jumlah kredensial login yang harus diingat, SSO juga meningkatkan efisiensi dengan mengurangi waktu dan upaya yang diperlukan untuk beralih antara sistem-sistem yang ada. Namun, mengintegrasikan sistem-sistem yang dibangun dengan beragam kerangka kerja web dapat menjadi tantangan tersendiri.
 
-Dalam penelitian ini, Universitas X akan menggunakan framework Actix Web Server dalam bentuk API untuk mengimplementasikan sistem SSO. Actix, yang menggunakan bahasa pemrograman Rust, dipilih karena keamanan memori yang kuat dan kecepatan yang hampir setara dengan bahasa pemrograman sistem seperti C dan C++. Keamanan memori yang baik dan kinerja yang cepat menjadi faktor penting dalam membangun sistem SSO yang andal dan efisien\cite{kyriakou2022complementing}.
+Dalam penelitian ini, Universitas X akan menggunakan framework Actix Web Server dalam bentuk API untuk mengimplementasikan sistem SSO. Actix, yang menggunakan bahasa pemrograman Rust, dipilih karena keamanan memori yang kuat dan kecepatan yang hampir setara dengan bahasa pemrograman sistem seperti C dan C++. Keamanan memori yang baik dan kinerja yang cepat menjadi faktor penting dalam membangun sistem SSO yang andal dan efisien\autocite{kyriakou2022complementing}.
 
-Selain itu, penelitian ini juga akan mengevaluasi performa sistem SSO yang diimplementasikan. Evaluasi kinerja akan dilakukan melalui skenario beban stres\cite{ComparativeAnaWaluyo2022}, di mana akan diukur waktu respons API untuk setiap permintaan yang masuk. Metode ini akan memberikan pemahaman yang lebih baik tentang kemampuan sistem SSO dalam menangani beban kerja yang tinggi serta memberikan waktu respons yang optimal bagi pengguna.
+Selain itu, penelitian ini juga akan mengevaluasi performa sistem SSO yang diimplementasikan. Evaluasi kinerja akan dilakukan melalui skenario beban stres\autocite{ComparativeAnaWaluyo2022}, di mana akan diukur waktu respons API untuk setiap permintaan yang masuk. Metode ini akan memberikan pemahaman yang lebih baik tentang kemampuan sistem SSO dalam menangani beban kerja yang tinggi serta memberikan waktu respons yang optimal bagi pengguna.
 
-Keamanan merupakan hal yang sangat penting dalam sebuah sistem web. Data dari Kementerian Komunikasi dan Informatika menunjukkan bahwa serangan siber terhadap situs web perusahaan di Indonesia meningkat 31\% dari tahun 2020 hingga 2021, dari 206 serangan menjadi 270 serangan per tahun. Kesalahan dalam menulis kode program dapat menjadi celah yang rentan terhadap serangan siber, seperti serangan injeksi SQL, otentikasi, dan XSS (cross-site scripting). Data dari webappsec.org pada tahun 2021 menunjukkan bahwa serangan XSS mencapai 43\% dan injeksi SQL sebesar 6\% . Serangan siber atau peretas dapat melakukan tindakan berbahaya seperti mencuri data berharga. Oleh karena itu, sangat penting untuk menguji keamanan sebuah situs web guna mengetahui tingkat kerentanan fitur-fitur aplikasi di dalamnya, sehingga situs web tersebut dapat tahan terhadap upaya serangan siber. Dalam konteks universitas, praktek keamanan yang ketat juga sangat dibutuhkan untuk melindungi data mahasiswa, staf, dan sistem yang ada dari potensi serangan siber yang dapat mengganggu operasional universitas dan merusak reputasi institusi\cite{Priyawati2022WebsiteVT}.
+Keamanan merupakan hal yang sangat penting dalam sebuah sistem web. Data dari Kementerian Komunikasi dan Informatika menunjukkan bahwa serangan siber terhadap situs web perusahaan di Indonesia meningkat 31\% dari tahun 2020 hingga 2021, dari 206 serangan menjadi 270 serangan per tahun. Kesalahan dalam menulis kode program dapat menjadi celah yang rentan terhadap serangan siber, seperti serangan injeksi SQL, otentikasi, dan XSS (cross-site scripting). Data dari webappsec.org pada tahun 2021 menunjukkan bahwa serangan XSS mencapai 43\% dan injeksi SQL sebesar 6\% . Serangan siber atau peretas dapat melakukan tindakan berbahaya seperti mencuri data berharga. Oleh karena itu, sangat penting untuk menguji keamanan sebuah situs web guna mengetahui tingkat kerentanan fitur-fitur aplikasi di dalamnya, sehingga situs web tersebut dapat tahan terhadap upaya serangan siber. Dalam konteks universitas, praktek keamanan yang ketat juga sangat dibutuhkan untuk melindungi data mahasiswa, staf, dan sistem yang ada dari potensi serangan siber yang dapat mengganggu operasional universitas dan merusak reputasi institusi\autocite{Priyawati2022WebsiteVT}.
 
-Pengujian keamanan sistem SSO dengan mengacu pada OWASP Top 10. OWASP (Open Web Application Security Project) Top 10, yang adalah daftar kerentanan keamanan yang umum ditemui dalam aplikasi web. Melalui pengujian ini, akan dievaluasi tingkat keamanan sistem SSO terhadap serangan umum yang tercantum dalam daftar OWASP Top 10\cite{Priyawati2022WebsiteVT}. Hal ini penting untuk memastikan bahwa sistem SSO yang diimplementasikan di Universitas X memiliki tingkat keamanan yang memadai dan melindungi data pengguna dengan baik.
+Pengujian keamanan sistem SSO dengan mengacu pada OWASP Top 10. OWASP (Open Web Application Security Project) Top 10, yang adalah daftar kerentanan keamanan yang umum ditemui dalam aplikasi web. Melalui pengujian ini, akan dievaluasi tingkat keamanan sistem SSO terhadap serangan umum yang tercantum dalam daftar OWASP Top 10\autocite{Priyawati2022WebsiteVT}. Hal ini penting untuk memastikan bahwa sistem SSO yang diimplementasikan di Universitas X memiliki tingkat keamanan yang memadai dan melindungi data pengguna dengan baik.
 
-Implementasi-implementasi sebelumnya untuk SSO seperti OpenID dan OAuth telah terbukti efektif \cite{ComparativeAnaWaluyo2022}, namun mereka dapat memperkenalkan keterikatan dengan pihak ketiga. Uji benchmark terbaru menunjukkan bahwa OpenID mampu menangani login simultan dari 1230 pengguna, sedangkan OAuth dapat menampung 1219 pengguna\cite{ComparativeAnaWaluyo2022}. Namun, dari segi waktu respons rata-rata, OAuth menunjukkan kekonsistenan yang lebih baik. Untuk meningkatkan layanan web, memanfaatkan kekuatan Actix, sebuah \emph{framework} web yang cepat dengan basis Rust\cite{kyriakou2022complementing} . Actix, yang dikombinasikan dengan adopsi luas token JWT untuk autentikasi dan otorisasi, tidak hanya menjamin pengembangan yang lebih cepat dan fleksibel \cite{ADynamicFederAlsade2022}, tetapi juga mendorong pembuatan perangkat lunak tertutup yang aman yang sesuai dengan kebutuhan khusus universitas dan institusi.
+Implementasi-implementasi sebelumnya untuk SSO seperti OpenID dan OAuth telah terbukti efektif \autocite{ComparativeAnaWaluyo2022}, namun mereka dapat memperkenalkan keterikatan dengan pihak ketiga. Uji benchmark terbaru menunjukkan bahwa OpenID mampu menangani login simultan dari 1230 pengguna, sedangkan OAuth dapat menampung 1219 pengguna\autocite{ComparativeAnaWaluyo2022}. Namun, dari segi waktu respons rata-rata, OAuth menunjukkan kekonsistenan yang lebih baik. Untuk meningkatkan layanan web, memanfaatkan kekuatan Actix, sebuah \emph{framework} web yang cepat dengan basis Rust\autocite{kyriakou2022complementing} . Actix, yang dikombinasikan dengan adopsi luas token JWT untuk autentikasi dan otorisasi, tidak hanya menjamin pengembangan yang lebih cepat dan fleksibel \autocite{ADynamicFederAlsade2022}, tetapi juga mendorong pembuatan perangkat lunak tertutup yang aman yang sesuai dengan kebutuhan khusus universitas dan institusi.
 
-Proses ini melibatkan pemahaman dan pengungkapan masalah yang ada, mendefinisikan persyaratan yang diperlukan, merancang dan mengembangkan artefak yang sesuai, mendemonstrasikan fungsi artefak, melakukan evaluasi untuk memastikan kualitasnya, dan mengkomunikasikan hasil penelitian kepada pemangku kepentingan. Dengan menggunakan pedoman ini, diharapkan sistem yang dirancang dapat secara efektif dan efisien melakukan benchmarking pada tahap komunikasi, membantu dalam meningkatkan kualitas dan kinerja sistem yang ada\cite{DesignScienceHevner2004}.
+Proses ini melibatkan pemahaman dan pengungkapan masalah yang ada, mendefinisikan persyaratan yang diperlukan, merancang dan mengembangkan artefak yang sesuai, mendemonstrasikan fungsi artefak, melakukan evaluasi untuk memastikan kualitasnya, dan mengkomunikasikan hasil penelitian kepada pemangku kepentingan. Dengan menggunakan pedoman ini, diharapkan sistem yang dirancang dapat secara efektif dan efisien melakukan benchmarking pada tahap komunikasi, membantu dalam meningkatkan kualitas dan kinerja sistem yang ada\autocite{DesignScienceHevner2004}.
 
-\bibliographystyle{apacite}
-\bibliography{main}
-% \printbibliography
+% \bibliographystyle{apacite}
+% \bibliography{main}
+\printbibliography[title=Daftar Pustaka]
 \newpage
 \section*{Artikel Jurnal}
 \begin{center}
-    \begin{longtable}{|p{2.5cm}|p{2.5cm}|p{5cm}|p{5cm}|}
+    \begin{longtable}{|p{4cm}|p{3cm}|p{4cm}|p{4cm}|}
         \caption{Solusi dan Masalah}
         \label{tab:table1}\\
         % \hline
         % 1&2&3&4\\
         % 3&48&6&5
         \hline
-        Judul & Jurnal & Masalah & Solusi/Kesimpulan \\
+        Artikel & Pengarang & Masalah & Solusi/Kesimpulan \\
         \hline
-        Website Vulnerability Testing and Analysis of Website Application Using OWASP
-        & International Journal of Computer and Information System (IJCIS) 
+        Website Vulnerability Testing and Analysis of Website Application Using OWASP,International Journal of Computer and Information System (IJCIS) 
+        & \autocite{Priyawati2022WebsiteVT}
         & Bagaimana memberi \emph{assesment} pada tingkat keamanan sebuah website
         & Menggunakan metode \emph{grey box pen testing} dengan OWASP-ZAP untuk memberitahukan tingkat keamanan website\\
         \hline
@@ -119,26 +124,26 @@ Proses ini melibatkan pemahaman dan pengungkapan masalah yang ada, mendefinisika
         % & Sebuah model referensi yang menjelaskan MFA dan SSO dapat mencapai tingkat keamanan tertentu 
         % \\
         % \hline
-        Complementing JavaScript in High-Performance Node. js and Web Applications with Rust and WebAssembly
-        & Electronics
+        Complementing JavaScript in High-Performance Node. js and Web Applications with Rust and WebAssembly, Electronics
+        & \autocite{kyriakou2022complementing}
         & Kurangnya Performa, Effisiensi dan performa Konkurensi, Javascript seperti juga High-level interpreted language lainnya memberi abstraksi yang baik tapi dengan trade off performance dan kurang nya pemanfaatan kapabilitas hardware.
         & Performance Improvement: Hasil stress test menunjukan Implementasi Rust mengalahkan performa Javascript(node.js) 115 kali lipat juga 14.5 kali lebih cepat menyelesaikan test model konkurensi.
         \\
         \hline
-        A Dynamic Federated Identity Management Using OpenID Connect
-        & Future Internet; MDPI AG
+        A Dynamic Federated Identity Management Using OpenID Connect, Future Internet; MDPI AG
+        & \autocite{ADynamicFederAlsade2022}
         & Proses saat ini dalam membangun federasi identitas di organisasi bersifat manual dan memakan waktu, menghambat kolaborasi yang efisien dan skalabilitas di sektor TI. Selain itu, diperlukan pertukaran informasi yang aman dan terpercaya antara pihak yang mengandalkan (RPs) dan penyedia OpenID (OPs) agar manajemen identitas terfederasi (FIM) dapat berjalan efektif..
         & Model FIM dinamis berbasis OpenID Connect (OIDC) diusulkan. Model ini memungkinkan organisasi membangun federasi identitas secara dinamis pada saat runtime. Terdiri dari tiga langkah kunci: penemuan dinamis, pendaftaran klien dinamis, dan pembentukan kepercayaan dinamis. Model ini menghemat waktu dan memperluas kolaborasi dengan efisien. Dapat diterapkan di berbagai sektor seperti bisnis dan kesehatan, meningkatkan pertukaran informasi dan pengalaman pengguna.
         \\
         \hline
-        Design Science in Information Systems Research,
-        & MIS Quarterly
+        Design Science in Information Systems Research, MIS Quarterly
+        & \autocite{DesignScienceHevner2004}
         & Bagaimana mendesain sistem dan mempresentsaikan sistem tersebut  
-        & Metoe penelitian dalam mendesin sebuah sistem informasi
+        & Metode penelitian dalam mendesin sebuah sistem informasi
         \\
         \hline
-        A Dynamic Federated Identity Management Using OpenID Connect
-        & International Journal of Computer and Information Technology(2279-0764)
+        \usebibentry{ComparativeAnaWaluyo2022}{title}, International Journal of Computer and Information Technology(2279-0764)
+        & \autocite{ComparativeAnaWaluyo2022}
         & Pengguna sering lupa akun dan kata sandi mereka karena memiliki terlalu banyak akun untuk mengakses internet.Terdapat protokol implmentasi yang telah digunakan secara luas (OpenId dan OAuth)        
         & Membuat prototipe menggunakan Single Sign On (SSO) dengan menggunakan protokol OpenID atau OAuth. Melakukan studi kinerja pada protokol SSO OpenID dan OAuth untuk menentukan jumlah pengguna yang dapat masuk secara bersamaan dan waktu respons rata-rata. Hasil pengujian menunjukkan bahwa OAuth memiliki kinerja yang lebih baik dengan mampu menangani 1219 pengguna masuk dan memiliki respons waktu rata-rata yang lebih konsisten.
         \\

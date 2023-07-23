@@ -1,0 +1,63 @@
+\documentclass{article}
+% \usepackage{tabularx}
+\begin{document}
+
+\begin{center}
+    Tugas Managemen Keuangan\\
+    \smallbreak
+    Ilman Samhabib 91122010 63/MMSI/SIB
+    \smallbreak
+\end{center}
+
+\subsection*{Nomor 1}
+Jika Umur proyek diperkirakan selama 9 tahun,
+dimana Penjualan naik 10\% tiap tahun dan HPP naik 9\% per tahun
+maka rugi-laba, pajak dan cash flow adalah (dlm ribu rupiah)
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ c c c c c c }
+        \hline
+        Tahun & Penjualan & HPP      & Rugi-Laba & Pajak      & Cash Flow   \\
+        \hline
+        1 & 100,234,211 & 9,932,299 & 90,301,912 & 27,090,573.6 & 63,211,338.4 \\
+        2 & 110,257,632 & 10,826,206 & 99,431,426 & 29,829,427.8 & 69,601,998.2 \\
+        3 & 121,283,395 & 11,800,564 & 109,482,831 & 32,844,849.3 & 76,637,981.7 \\
+        4 & 133,411,734 & 12,862,615 & 120,549,119 & 36,164,735.7 & 84,384,383.3 \\
+        5 & 146,752,908 & 14,020,250 & 132,732,658 & 39,819,797.4 & 92,912,860.6 \\
+        6 & 161,428,199 & 15,282,073 & 146,146,126 & 43,843,837.8 & 102,302,288.2 \\
+        7 & 177,571,019 & 16,657,459 & 160,913,560 & 48,274,068.0 & 112,639,492.0 \\
+        8 & 195,328,120 & 18,156,631 & 177,171,489 & 53,151,446.7 & 124,020,042.3 \\
+        9 & 214,860,933 & 19,790,728 & 195,070,205 & 58,521,061.5 & 136,549,143.5 \\
+        10 & 236,347,026 & 21,571,893 & 214,775,133 & 64,432,539.9 & 150,342,593.1 \\
+        \hline
+    \end{tabular}
+\end{table}
+\smallbreak
+Payback Period, setelah 10 tahun di atas proyek 
+belum mengembalikan 88 milyar modal, dengan penjumlahan cashflow , atau hanya sekitar $1,012,602,122$\\
+Payback Period, baru setelah 52 tahun dengan penjumlahan cashflow sebesar  $92,213,845,796$, dengan asumsi 10\% dan 9\% pertumbuhan pada penjualan dan hpp
+\smallbreak
+NPV adalah $ \sum(Cash Flow / (1 + Interest Rate)^{Year}) - Initial Investment$, dengan menjummlahkan semua cashflow diatas dan memvaginya dengan interest rate dan year,
+untuk 10 tahun NPV masih negatif $-574,390,284,007$
+\smallbreak
+IRR juga negatif untuk 10 tahun atau NaN pada numpy\_financial
+dan hanya mencapai lebih dari satu ketika mencapai proyeksi pada 100 tahun IRR = $0.001223914917511948$
+\smallbreak
+Profitability index, dengan membagi npv dengan 88 milyar modal awal memberikan $-10.041587226089046$
+
+\subsection*{nomor 2}
+misalkan untuk menikah dalam waktu 5 tahun, diperkirakan diperlukan 100juta 5 tahun lagi, dengan asumsi tingkat bunga 4.5\% pertahun dikumpulkan perbulan, maka 100juta akan memiliki \emph{future value} sebesar
+$156,699,277$ dengan nilai \emph{future value} tersebut dan perhitungan bunga yang sama maka, diperlukan simpanan $1,036,384$ 
+
+\subsection*{nomor 3}
+Uang sebagai instrumen perencanaan memungkinkan kita mengelola rencana dengan lebih mudah. Dengan menguangkan nilai dari setiap rencana dan menilainya secara tepat dengan uang, kita dapat melakukan perencanaan yang efektif. Kemudahan dalam mendapatkan bantuan finansial saat ini juga memberikan peluang untuk memenuhi kebutuhan dengan lebih mudah. Meskipun berutang mungkin diperlukan, pengelolaan yang baik memungkinkan kita membayar utang tepat waktu. Dengan perencanaan yang tepat, kita dapat mencapai apa yang dibutuhkan dengan mudah dan memastikan kewajiban finansial terpenuhi.
+
+Dengan mengelola kuangan khususnya pendapatan dan pengeluaran secara bijaksana, serta menggunakan uang sebagai alat untuk mengukur nilai rencana kita, kita dapat mengidentifikasi langkah-langkah konkret yang perlu diambil untuk mewujudkan mimpi kita. Selain itu, perencanaan yang baik juga memungkinkan kita untuk mengatur anggaran, menyisihkan dana, dan menginvestasikan uang dengan bijak untuk mempercepat pencapaian tujuan kita.
+
+
+
+
+
+
+
+\end{document}
