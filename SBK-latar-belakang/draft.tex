@@ -1,9 +1,15 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 % \usepackage[bahasa]{babel}
 \usepackage[style=apa]{biblatex}
 \addbibresource{main.bib}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15}\bfseries}{\thesection}{1em}{}
+
 \renewcommand\thesection{\Alph{section}.}
 % \renewcommand\thesubsection{\thesection.\Alph{subsection}}
 
@@ -20,20 +26,32 @@
 \bibinput{main}
 \usepackage{indentfirst}
 \graphicspath{ {./images/} }
-\title{Seminar Bidang Kajian: Bab 1 & Jurnal }
+\title{Seminar Bidang Kajian: Proposal }
 
 
 \begin{document}
-
+\thispagestyle{empty}
+\begin{center}
+    Proposal Penelitian\\
+    \textbf{Integrasi SSO pada Universitas X menggunakan \emph{Actix Web-Framework} }\\
+    \vspace*{11\baselineskip}
+    \includegraphics[width=0.4\textwidth,height=0.4\textwidth]{glogo}  \\
+    \vspace*{11\baselineskip}
+    disusun oleh:\\
+    \textbf{Ilman Samhabib (91122010)}\\
+    \textbf{Universitas Gunadarma}\\
+    \textbf{2023}\\
+\end{center}
+\newpage
 \section*{Judul}
 Integrasi SSO pada Universitas X menggunakan \emph{Actix Web-Framework}
-\section{Abstrak}
+\section*{Abstrak}
 Penelitian ini difokuskan pada implementasi sistem Single Sign-On (SSO) di Universitas X, mengintegrasikannya dengan sistem-sistem yang sudah yang setiap satunya menggunakan \emph{web framework} berbeda. Studi ini bertujuan untuk menguraikan konstruksi sistem SSO dan mengevaluasi kinerjanya serta keamanannya.Studi ini berupaya untuk memberikan sumbangan bagi peningkatan infrastruktur digital universitas, sambil juga memberikan wawasan dan rekomendasi yang dapat diterapkan pada implementasi SSO serupa di institusi pendidikan lainnya.
 
 % \section{Pendahuluan}
 \section{Latar Belakang}
 
-Kompleksitas akses di Universitas X menjadi tantangan besar bagi pengguna. Mengakses berbagai sistem di universitas ini memerlukan pengelolaan banyak kredensial login, yang menyebabkan penurunan produktivitas dan frustrasi pengguna. Solusi satu \emph{single sign on} (SSO) menjadi krusial untuk menyederhanakan proses akses. Dengan menerapkan mekanisme tanda masuk tunggal, pengguna hanya perlu melakukan otentikasi sekali untuk mengakses berbagai sistem dengan mudah. Solusi ini bertujuan untuk menyederhanakan proses login, mengurangi jumlah kredensial yang harus diingat, dan meningkatkan pengalaman pengguna secara keseluruhan.
+Kompleksitas akses di Universitas X menjadi hambatan bagi pengguna. Mengakses berbagai sistem di universitas ini memerlukan pengelolaan banyak kredensial login, yang menyebabkan penurunan produktivitas dan frustrasi pengguna. Solusi satu \emph{single sign on} (SSO) menjadi krusial untuk menyederhanakan proses akses. Dengan menerapkan mekanisme SSO, pengguna hanya perlu melakukan otentikasi sekali untuk mengakses berbagai sistem dengan mudah. Solusi ini bertujuan untuk menyederhanakan proses login, mengurangi jumlah kredensial yang harus diingat atau disimpan, dan memudahkan akses pengguna secara keseluruhan.
 
 Pendekatan otentikasi yang ada di Universitas X mungkin mengalami masalah kinerja lambat dan terkungkung oleh vendor tertentu. Kinerja lambat ini juga akan berakibat memperlabat sistem lainnya yang terintegrasi dengan  sistm SSO ini. Beberapa solusi, seperti \emph{OAuth} dan \emph{OpenID}, meskipun populer, belum dapat memenuhi kebutuhan yang memerlukan kecepatan lebih. Untuk mengatasi keterbatasan ini, perlu dikembangkan aplikasi layanan web yang handal dengan menggunakan kerangka kerja Actix. Actix, yang dikenal karena kinerjanya yang memumpuni dan skalabilitasnya, menawarkan solusi yang dapat secara signifikan meningkatkan waktu respons dan meningkatkan proses otentikasi secara keseluruhan. Dengan menggunakan Actix, Universitas X memperoleh fleksibilitas dan kendali untuk menyesuaikan sistem otentikasi sesuai dengan kebutuhan khususnya, mengurangi ketergantungan pada vendor eksternal.
 
@@ -56,9 +74,9 @@ Masalah yang teridentifikasi:
 \section{Batasan Masalah}
 Masalah yang barusaha dijawab oleh penelitian ini akan terbatas pada:
 \begin{enumerate}
-    \item Bagaimana mengintegrasikan sistem SSO (\emph{single sign on}) dengan berbagai sistem yang telah ada sebelumnya pada universitas X?
-    \item Seberapa aman sistem SSO Universitas X yang akan dibangun?
-    \item Bagaimana performa SSO Universitas X yang akan dibangun?
+    \item Bagaimana mengintegrasikan sistem SSO (\emph{single sign on}) dengan berbagai sistem yang telah ada sebelumnya pada universitas X.
+    \item Seberapa aman sistem SSO Universitas X yang akan dibangun.
+    \item Bagaimana performa SSO Universitas X yang akan dibangun.
 \end{enumerate}
 \section{Tujuan Penelitian}
 Penelitian ini bertujuan untuk:
@@ -98,6 +116,20 @@ Implementasi-implementasi sebelumnya untuk SSO seperti OpenID dan OAuth telah te
 
 Proses ini melibatkan pemahaman dan pengungkapan masalah yang ada, mendefinisikan persyaratan yang diperlukan, merancang dan mengembangkan artefak yang sesuai, mendemonstrasikan fungsi artefak, melakukan evaluasi untuk memastikan kualitasnya, dan mengkomunikasikan hasil penelitian kepada pemangku kepentingan. Dengan menggunakan pedoman ini, diharapkan sistem yang dirancang dapat secara efektif dan efisien melakukan benchmarking pada tahap komunikasi, membantu dalam meningkatkan kualitas dan kinerja sistem yang ada\autocite{DesignScienceHevner2004}.
 
+\section{Metode Penelitian}
+Penelitian ini dilakukan dengan metode:
+
+\begin{enumerate}
+        
+    \item Studi Literatur: Melakukan studi literatur tentang sistem otentikasi, Single Sign-On (SSO), \emph{framework Actix}, dan \emph{framework OWASP Top 10} guna mendapatkan pemahaman yang komprehensif.
+    
+    \item Analisis dan Rancangan Sistem: Menganalisis kebutuhan pengguna dan sistem di Universitas X untuk mengintegrasikan beberapa sistem yang sudah ada setelah implementasi SSO. Merancang sistem SSO dengan menggunakan \emph{framework Actix}, meliputi infrastruktur dan arsitektur yang tepat.
+    
+    \item Implementasi dan Evaluasi: Mengimplementasikan rancangan SSO melalui pengembangan aplikasi layanan web dengan \emph{framework Actix}. Melakukan evaluasi terhadap implementasi SSO, dengan fokus pada kesederhanaan proses login, performa sistem, dan tingkat keamanan yang tercapai.
+    
+\end{enumerate}
+
+Dengan melakukan berbagai jenis pengujian ini, diharapkan sistem SSO yang diimplementasikan dapat berfungsi dengan baik, aman, dan memenuhi kebutuhan pengguna di Universitas X. Hasil dari pengujian ini akan membantu dalam evaluasi dan pemeliharaan sistem SSO untuk jangka waktu yang lebih panjang.
 % \bibliographystyle{apacite}
 % \bibliography{main}
 \printbibliography[title=Daftar Pustaka]
