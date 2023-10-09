@@ -1,0 +1,9 @@
+Name: Ilman Samhabib
+NPM:91122010
+
+1. data mining much like a 'mining of resource' is finding something of a value among collected data, the so called value can be gained by finding new pattern, or structure that could give more clearer insight into problem solving or strategy making. 
+	It involves transforming data or even deliberately supplement data to make it sufficient to be processed by myriad  algorithms that is widely used gain more generalized view or even find a specialized knowledge or unforseen pattern beyond a simple descriptive statistics.    
+
+2.  multidimensional view in data mining is a way of presenting data through multiple prespectives, this so called prespectivse may already present at time of data collection or deliberately added --like a new axis in a data plot-- to better understand the data in respect of various axis or prespective. A multidimensional view can also means some higher generalized view, such as reducing the dimension of data or clustering, to explain new data in a new prespective that is a new generalized prespective.
+
+ example: the sales of a merchandise may be viewed or presented by its amount of sale monthly, and the item name --presented as a two axis data representation, but we may supplement the presented data with aditional axis that is location, to better understand the customer behaviour in term of geographic factor, this modification in data representation may needs another data collection or transformation of  pre collected data to fit the representation. Or re-cluster the data to find unforseen pattern such as clustering by item price to find out what price range for product that is popular. Or if we have  more detailed data with various defined columns/features for each sale, we can even predict a customer decision pattern by building some mathematical model of it (such as using decision tree, a forest of those trees)

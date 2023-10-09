@@ -1,0 +1,8 @@
+general computing
+  - applications similar to desktop computing but in an embedded package
+  - video games, set-top boxes, wearable computers, automatic tellers
+control systems
+  - closed-loop feedback control of real time systems
+  - 
+signal processing
+communication & networking
