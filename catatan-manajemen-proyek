@@ -29,7 +29,7 @@ common pitfalls,
 	- lack of effective communication process
 	- others?
 
-BIG DATA GOAL --> DESCRIPTIVE, PREDIKTIVE, PRESCRIPTIVE (gives recommendation of something)
+BIG DATA GOAL --> DESCRIPTIVE, PREDICTIVE, PRESCRIPTIVE (gives recommendation of something)
 
 Factors affecting project success
 	- coordination and relations
@@ -41,3 +41,60 @@ Factors affecting project success
 	- internal capabilities buildup
 
 
+initial phase 
+intermediate phase -- more cost and staffing is needed than the other two phases
+final phase
+
+Feature Driven Development <<????
+
+----------------prototype vs proof of concept---------------------
+A prototype and a proof of concept (POC) are both artifacts used in the development and evaluation of a product, system, or solution, but they serve different purposes and are created at different stages of the development process.
+
+### Prototype:
+
+A prototype is a working model or a representation of a product that is built to test or demonstrate various aspects of its design, functionality, and user interactions. Prototypes are often created to gather feedback, validate design decisions, and identify potential issues before full-scale development. There are different types of prototypes, such as:
+
+1. **Low-Fidelity Prototype:** This is a basic representation often created with paper, sketches, or simple digital tools. It focuses on high-level design and functionality.
+
+2. **High-Fidelity Prototype:** This is a more detailed and interactive model that closely resembles the final product. It may include realistic user interfaces and interactions.
+
+The key characteristics of prototypes include their focus on usability, design validation, and the ability to uncover potential improvements through user testing.
+
+### Proof of Concept (POC):
+
+A proof of concept is a small-scale experiment or demonstration to verify the feasibility, practicality, and viability of a certain concept or idea. It is often used in the early stages of a project to assess whether a particular technology or approach can be implemented successfully. Key features of a proof of concept include:
+
+1. **Feasibility Testing:** A POC is designed to test whether a specific technology or methodology can be implemented to solve a particular problem.
+
+2. **Risk Mitigation:** It helps in identifying and mitigating risks associated with the proposed solution before full-scale development.
+
+3. **Limited Scope:** POCs are usually small in scope and are not intended to be fully functional products. They are focused on proving the technical feasibility of a concept.
+
+### Differences:
+
+1. **Purpose:**
+   - **Prototype:** Primarily created to test and validate the design and usability of a product.
+   - **Proof of Concept:** Created to validate the feasibility and viability of a specific technical concept or approach.
+
+2. **Scope:**
+   - **Prototype:** Can be a complete or partial representation of the final product, focusing on design and user interactions.
+   - **Proof of Concept:** Generally smaller in scope, focusing on testing a specific aspect or technology.
+
+3. **Timing:**
+   - **Prototype:** Typically created after initial concepts and requirements are defined and aims to validate the design before full development.
+   - **Proof of Concept:** Usually conducted at the early stages of a project to assess technical feasibility.
+
+4. **Output:**
+   - **Prototype:** A model that represents the design and functionality of the final product.
+   - **Proof of Concept:** A demonstration or report that proves the feasibility of a particular technical concept.
+
+In summary, while prototypes focus on design validation and user interaction, proof of concepts are more concerned with technical feasibility and risk mitigation in the early stages of a project. Both are valuable tools in the development process, each serving its specific purpose.
+---------------------------------------------------------------------
+
+Xtreme Programing
+Agile
+Scrum
+_____________________________________________________________________
+
+membuat use case..pengembangan sistem informasi, mau pake sdlc yang mana terus disertakan justifikasi nya...
+bikin Workbreakdown Structure nya....

@@ -1,0 +1,21 @@
+functionality test,,,,,
+
+type of functionality tests 
+	- communication systems
+	- module
+	- logging and tracing
+	- elment management systems
+	- management information base
+	- graphical user interface
+	- security
+	- feature
+
+
+types of robustness tests 
+	- bonudary value
+	- power cycling
+	- on-line insertion and removal
+	- high availability
+	- degraded node
+
+
