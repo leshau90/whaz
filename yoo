@@ -1,0 +1,16 @@
+Stage 0 
+The article mentions that Stage 0 of SSADM is the feasibility study. In this stage, they assess whether the website is suitable for adding a new system. They conduct a user satisfaction questionnaire and discuss the financial
+
+Stage 1 - Investigation Of The Current Environment/Investigasi Lingkungan Saat Ini
+
+In stage 1 of the SSADM method, the current system environment is investigated. This involves analyzing the existing system and redesigning it to determine what should be included in the new system. The analysis is done by redrawing the system using a context diagram to understand the current system. This stage helps in making decisions about the new system based on the findings from the analysis.
+
+Stage 2 - Implementation
+
+In the implementation stage of the Structured System Analysis and Design Method (SSADM), the focus is on the actual implementation of the new system. This includes considering the software and hardware architecture used in creating the geographic information system (GIS) based website. The logical design of the system is translated into a physical design, which includes the implementation of a Database Management System (DBMS) and the user interface. The logical data structure is implemented in the form of a database structure.
+
+Stage 3 - Implementation
+
+In the context of the given document, stage 3 of the Structured System Analysis and Design Method (SSADM) is referred to as the "Requirements Specification" module. This stage involves the development of the system by specifying the requirements, such as gathering geographical data through direct surveys. The surveys are conducted to categorize the geographical locations based on the proposed new system's additions to the government website, specifically in the areas of education and health. The stage also includes the identification of the information system's products and data.
+
+

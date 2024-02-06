@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1.5cm]{geometry}
+% \usepackage[bahasa]{babel}
+\usepackage[style=apa]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15}\bfseries}{\thesection}{1em}{}
+
+\renewcommand\thesection{\Alph{section}.}
+% \renewcommand\thesubsection{\thesection.\Alph{subsection}}
+\usepackage{lscape}
+\usepackage{setspace} \onehalfspacing
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+% \usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+\usepackage{usebib} 
+\bibinput{main}
+\usepackage{indentfirst}
+\graphicspath{ {./images/} }
+\title{TUGAS }
+
+
+\begin{document}
+% \thispagestyle{empty}
+% \begbin{center}
+%     \textbf{Teknologi Informasi Lanjut}\\
+%     Tugas\\
+%     % Dosen: Dewi Agushinta, Dr
+%     \vspace*{11\baselineskip}
+%     \includegraphics[width=0.4\textwidth,height=0.4\textwidth]{glogo}  \\
+%     \vspace*{11\baselineskip}
+%     disusun boleh:\\
+%     \textbf{Ilman Samhabib (91122010)}\\
+%     \textbf{Universitas Gunadarma}\\
+%     \textbf{2023}\\
+% \end{center}//////////////
+% \newpage
+
+\begin{center}
+    \textbf{Tugas}\\
+    Teknologi Informasi Lanjut\\
+  % Dosen: Sunny Arief Sudiro, Dr.\\
+  \textbf{Ilman Samhabib (91122010)}\\
+\end{center}
+\section*{Soal}
+Implementasi standard kerja yang menggunakan sistem informasi ditempat kerja 
+\section*{Jawaban}
+\emph{belum ada penerapan standarisasi tertentu pada univesitas saya bekerja (UHO), at least pada level staff, jika pun ada saya akan menggunakan seperti yang akan di jelaskan}
+\subsubsection*{Implementasi Wazuh}
+Wazuh adalah platform Extended Detection and Response (XDR) dan Security Information and Event Management (SIEM) \emph{open source}, dapat membantu dalam mengelola sistem informasi perguruan tinggi dengan menyediakan manfaat berikut \autocite{Wazuh_2023}:
+\begin{enumerate}
+    
+    \item Pemantauan \emph{complience} dan kemanan yang terpusat: Solusi SIEM Wazuh menggabungkan, menyimpan, dan menganalisis data kejadian keamanan dari berbagai sumber, memungkinkan pemantauan waktu nyata, integrasi intelijen ancaman, dan dashboard serta laporan yang dapat disesuaikan. Ini juga membantu dalam kepatuhan regulasi dengan melacak dan menunjukkan kepatuhan dengan kerangka kerja seperti PCI DSS.
+
+    \item Keamanan Endpoint dan Fungsi XDR: Wazuh menyediakan keamanan endpoint yang komprehensif dengan menggunakan agenyang diinstal pada \emph{client}, yang tersedia untuk berbagai sistem operasi. Dengan menggabungkan fungsi XDR dan SIEM, ini menawarkan pendekatan proaktif terhadap keamanan TI perusahaan, memungkinkan deteksi dan mitigasi ancaman sebelum sistem terancam.
+     
+    \item Modifikasi dan penambahan rules untuk pendeteksian kejadian pada klien yang khusus dan unik
+    
+    \item Otomasi laporan mengenai hal hal diatas, ini juga mengikutsertakan laporan statistika level pelanggaran \emph{compliance} tertentu
+    
+\end{enumerate}
+
+Beberapa standarisasi yang dapat diterapkan dan terpasang secara default dalam wazuh dan dapat dilaporkan adalah sebagai berikut:
+
+\subsubsection*{PCI DSS compliance}
+PCI DSS, singkatan dari Payment Card Industry Data Security Standard, adalah seperangkat standar keamanan yang dikembangkan untuk melindungi informasi pembayaran yang ditangani oleh organisasi yang menerima dan memproses data kartu pembayaran. Standar ini berfokus pada keamanan data kartu kredit dan debit untuk mencegah pelanggaran keamanan, pencurian data, dan penipuan.
+
+Bagaimana PCI DSS dapat membantu dalam kepatuhan pada sebuah sistem informasi di universitas?  jika pada suatu saat universitas mempunyai data sensitif yang menhubungkan berbagai macam pemayaran online, mematuhi PCI DSS akan meningkatkan keamanan terkait dengan data pembayaran.
+    
+\subsubsection*{GDPR compliance}
+Kepatuhan terhadap GDPR (General Data Protection Regulation) sangat penting bagi sistem informasi universitas. GDPR melibatkan perlindungan data pribadi mahasiswa, staf, dan data penelitian, memastikan pemrosesan yang sah dan transparan. Dengan menekankan persetujuan, transparansi, dan hak individu terhadap data pribadi, kepatuhan ini juga menuntut implementasi tindakan keamanan yang sesuai. Melalui penerapan GDPR, universitas tidak hanya menjaga privasi data, tetapi juga membangun kepercayaan dengan melaporkan pelanggaran data dan memenuhi hak-hak subjek data. Selain itu, dengan mematuhi persyaratan GDPR, universitas dapat menghindari risiko hukum dan meningkatkan kultur privasi dalam lingkungan akademis.
+
+\subsubsection*{HIPAA}
+Kepatuhan terhadap HIPAA (Health Insurance Portability and Accountability Act) sangat penting dalam konteks sistem informasi universitas. HIPAA berfokus pada perlindungan informasi kesehatan dan data medis, yang seringkali dielola oleh universitas melalui layanan kesehatan kampus. Universitas perlu memastikan bahwa data kesehatan mahasiswa dan staf dijaga kerahasiaannya sesuai dengan standar HIPAA. Dengan menerapkan kebijakan dan tindakan keamanan yang sesuai, universitas dapat tidak hanya melindungi privasi data kesehatan tetapi juga memenuhi persyaratan hukum yang dapat berdampak pada citra dan kepercayaan lembaga. Penerapan HIPAA dalam sistem informasi universitas membantu mencegah pelanggaran keamanan, melibatkan transparansi, dan meningkatkan kualitas perlindungan data kesehatan.
+\subsubsection*{NIST 800-53}
+NIST 800-53 (National Institute of Standards and Technology Special Publication 800-53) adalah panduan keamanan yang diterbitkan oleh NIST untuk membantu organisasi mengelola dan meningkatkan keamanan sistem informasi mereka. NIST 800-53 memberikan serangkaian kontrol keamanan yang komprehensif yang dapat diterapkan dalam berbagai lingkungan, termasuk di dalamnya sistem informasi universitas.
+
+Dengan menerapkan NIST 800-53, universitas dapat membangun dan memelihara keamanan sistem informasi mereka. Dokumen ini mencakup berbagai kontrol yang melibatkan aspek keamanan seperti akses, enkripsi, monitoring, manajemen risiko, dan perlindungan data. Penerapan NIST 800-53 membantu universitas dalam menciptakan lingkungan informasi yang aman dan dapat diandalkan, serta memastikan perlindungan yang adekuat terhadap informasi sensitif yang dikelola oleh lembaga tersebut.
+\subsubsection*{TSC}
+Trust Service Criteria (TSC) merupakan seperangkat kriteria yang dikembangkan oleh AICPA (American Institute of Certified Public Accountants) melalui Assurance Services Executive Committee (ASEC). Kriteria ini bertujuan untuk mengevaluasi keamanan, keterandalan, dan privasi layanan sistem informasi yang disediakan oleh penyedia layanan. 
+
+Dalam konteks sistem informasi universitas, penerapan TSC memberikan manfaat signifikan. Ini mencakup peningkatan keamanan data dengan melindungi informasi sensitif dari akses yang tidak sah, memastikan kepatuhan dengan standar dan regulasi keamanan data, serta memberikan jaminan terhadap ketersediaan optimal sistem. Selain itu, TSC juga mendukung integritas data dengan memastikan proses pengolahan yang akurat dan lengkap, menjaga kerahasiaan dan privasi informasi, dan meningkatkan kepercayaan stakeholder seperti mahasiswa, staf, dan mitra institusi. Penerapan TSC tidak hanya mengelola risiko terkait keamanan informasi, tetapi juga memberikan keunggulan kompetitif dan reputasi positif bagi universitas. Dengan fokus pada kepatuhan dan standar tinggi, TSC membantu universitas mencapai tingkat keamanan dan integritas data yang diperlukan dalam lingkungan informasi yang semakin kompleks dan rentan.
+
+
+\printbibliography[title=Daftar Pustaka]
+
+
+
+
+\end{document}

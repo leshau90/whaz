@@ -1,0 +1,578 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1.5cm]{geometry}
+% \usepackage[bahasa]{babel}
+\usepackage[style=apa]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15}\bfseries}{\thesection}{1em}{}
+
+\renewcommand\thesection{\Alph{section}.}
+% \renewcommand\thesubsection{\thesection.\Alph{subsection}}
+\usepackage{lscape}
+\usepackage{setspace} \onehalfspacing
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+% \usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+\usepackage{usebib} 
+\bibinput{main}
+\usepackage{indentfirst}
+\graphicspath{ {./images/} }
+\title{Ujian Take Home}
+
+
+\begin{document}
+% \thispagestyle{empty}
+% \begbin{center}
+%     \textbf{Teknologi Informasi Lanjut}\\
+%     Tugas\\
+%     % Dosen: Dewi Agushinta, Dr
+%     \vspace*{11\baselineskip}
+%     \includegraphics[width=0.4\textwidth,height=0.4\textwidth]{glogo}  \\
+%     \vspace*{11\baselineskip}
+%     disusun boleh:\\
+%     \textbf{Ilman Samhabib (91122010)}\\
+%     \textbf{Universitas Gunadarma}\\
+%     \textbf{2023}\\
+% \end{center}
+% \newpage
+
+\begin{center}
+  \textbf{Ujian Take Home}\\
+  \textbf{Pengelolaan Proyek Sistem Informasi}\\
+   
+  \textbf{Ilman Samhabib (91122010)}\\
+\end{center}
+
+\section*{Sistem Informasi}
+Sistem informasi ini adalah sistem informasi akademik yang digunakan sebagai sarana CAT based test. Fitur utama sistem ini adalah meneyelenggarakan CAT untuk mahasiswa jalur test mandiri pada universitas X yang tesrsebar diberbagai titik di dalam kampus,  menghitung nilai dengan pembobotan kumulatif jawaban seluruh peserta ujian, dan memberi laporan performa peserta ujian yang tersentralisir, pada titik ini sistem memiliki versi 1.2.4A .
+
+Untuk penerimaan tahun berikutnya  dibutuhkan sebuah fitur yaitu survey yang dilakukan di komputer peserta sendiri sebelum melaksanakan ujian, sehingga tidak diperlukan pengisian kuesioner berbeda (menggunakan kartas lain) sebelum melaksanakan ujian CAT di komputer peserta. Fitur ini sistem akan memiliki versi 1.3.0, tapi akan tetap dilakukan bug fix sehingga memungkinkan sistem mencapai versi 1.3.5B.
+
+
+
+\section*{Standard IEEE}
+IEEE Standard for Software Maintenance 1219-1992 akan digunakan sebagai standar proses pemeliharaan sistem. Kategori proses Maintenance adalah untuk masalah ini adalah perfektif karena akan ada fitur baru sehingga memungkinkan sistem untuk dapat terus digunakan pada proses ujian-ujian mandiri berikutnya. Lebih lanjut akan dijelaskan  pada subbab-subbab selanjutnya.
+
+Menurut IEEE Std 1219-1992, proses pemeliharaan perangkat lunak terdiri dari tujuh tahap, yaitu:
+\begin{enumerate}
+  \item \textbf{Identifikasi Problem:}
+  \begin{itemize}
+      \item Memformulasikan MR (\emph{modification request})
+      \item Estimasi tingkat implementasi perubahan
+  \end{itemize}
+  
+  \item \textbf{Analisis MR:}
+  \begin{itemize}
+    \item Analisis Kecocokan
+    \item Analisis Mendetail
+  \end{itemize}
+  
+  \item \textbf{Desain:}
+  \begin{itemize}
+      \item Desain test case
+      \item Desain langkah implementasi
+      \item Mempertimbangkan Kembali Requirement Modification
+  \end{itemize}
+  
+  \item \textbf{Implementasi:}
+  \begin{itemize}
+      \item Code
+      \item Unit Test
+      \item Test Readines Review
+  \end{itemize}
+  
+  \item \textbf{Sistem Test:}
+  \begin{itemize}
+      \item fungsional testing
+      \item Interface testing
+      \item Regression Testing
+      \item Test Readiness Review
+  \end{itemize}
+  
+  \item \textbf{Acceptence Test:}
+  \begin{itemize}
+      \item Acceptence Test
+      \item Interopability test
+  \end{itemize}
+  
+
+  \item \textbf{Delivery Produk yang Dimodifikasi:}
+  \begin{itemize}
+      \item PCA
+      \item Install
+      \item Training
+  \end{itemize}
+\end{enumerate}
+
+\section*{Identifikasi Problem}
+\textbf{Deskripsi Perubahan:}
+\begin{itemize}
+    \item Kembangkan dan integrasikan fitur baru yang memungkinkan sistem mengumpulkan data survei dari pengguna sebelum memulai ujian CAT.
+    \item Simpan data survei yang terkumpul dalam database.
+    \item Buat halaman pelaporan statistika surey.
+\end{itemize}
+
+\textbf{Alasan Perubahan:}
+\begin{itemize}
+    \item Meningkatkan kemampuan sistem untuk mengumpulkan wawasan dan data pengguna yang berharga untuk analisis dan pengambilan keputusan.
+    \item Berpotensi meningkatkan kustomisasi atau personalisasi ujian berdasarkan tanggapan pengguna.
+\end{itemize}
+
+% \textbf{Lingkup Perubahan:}
+% \begin{itemize}
+%     \item Modifikasi front-end:
+%         \begin{itemize}
+%             \item Desain dan implementasikan formulir survei di dalam antarmuka sistem.
+%             \item Integrasikan fungsi pengiriman survei dan penyimpanan data.
+%         \end{itemize}
+%     \item Modifikasi back-end:
+%         \begin{itemize}
+%             \item Memodifikasi database.
+%             \item Implementasikan fungsi pengambilan dan pengelolaan data.
+%         \end{itemize}
+% \end{itemize}
+
+% \textbf{Penilaian Dampak:}
+% \begin{itemize}
+%     \item Dampak potensial pada komponen dan fungsi sistem yang ada perlu dievaluasi.
+%     \item Pengujian dan validasi menyeluruh diperlukan untuk memastikan tidak ada gangguan pada fungsi inti ujian.
+% \end{itemize}
+
+% \textbf{Prioritas:}
+% \begin{itemize}
+%     \item Prioritas tinggi karena potensi manfaat data survei untuk peningkatan sistem.
+% \end{itemize}
+
+% \textbf{Perkiraan Usaha:}
+% \begin{itemize}
+%     \item [Masukkan estimasi jam atau sumber daya yang diperlukan untuk pengembangan dan implementasi]
+% \end{itemize}
+
+% \textbf{Penyetujuan:}
+% \begin{itemize}
+%     \item [Tanda tangan pemangku kepentingan yang relevan, seperti manajer proyek, pimpinan tim pengembangan, dan perwakilan pengguna akhir]
+% \end{itemize}
+
+% \textbf{Penjelasan:}
+% MR ini adalah \textbf{perbaikan sempurna} (perfective maintenance) karena bertujuan untuk meningkatkan fungsionalitas sistem yang ada. Perubahan yang dilakukan adalah penambahan fitur baru, yaitu fitur pengumpulan data survei. Fitur ini akan memungkinkan sistem untuk mengumpulkan wawasan dan data pengguna yang berharga untuk analisis dan pengambilan keputusan. Selain itu, fitur ini juga berpotensi meningkatkan kustomisasi atau personalisasi ujian berdasarkan tanggapan pengguna.
+
+% MR ini memiliki prioritas tinggi karena potensi manfaatnya yang besar bagi sistem. Data survei yang dikumpulkan dapat digunakan untuk meningkatkan kualitas ujian, meningkatkan kepuasan pengguna, dan meningkatkan efektivitas pembelajaran.
+
+% \section*{Identifikasi Masalah}
+
+% \textbf{Memformulasikan MR (Modification Request):}
+% \begin{itemize}
+%   \item \textbf{Masalah yang Nyata:} Sistem saat ini tidak mendukung fitur survey di komputer peserta sebelum ujian, sehingga memerlukan perubahan untuk memasukkan fitur ini. MR harus merinci bagaimana fitur tersebut diimplementasikan dan mengapa perubahan ini diperlukan (seperti efisiensi pengisian kuesioner terpisah).
+% \end{itemize}
+
+\textbf{Estimasi Tingkat Implementasi Perubahan:}
+\begin{itemize}
+  \item \textbf{Masalah yang Nyata:} Perubahan ini akan memiliki dampak pada berbagai aspek sistem, dan diperlukan analisis dampak untuk mengidentifikasi potensi masalah atau konflik dengan fitur eksisting. Estimasi waktu dan sumber daya diperlukan untuk perencanaan pengembangan yang efisien.
+\end{itemize}
+\textbf{Estimasi Proses Implementasi:}
+
+\begin{enumerate}
+  \item \textbf{Analisis dan Perencanaan:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Menilai persyaratan fitur baru, menganalisis dampaknya pada sistem, dan merencanakan strategi implementasi.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu tergantung pada kompleksitas perubahan.
+  \end{itemize}
+
+  \item \textbf{Pengembangan Fitur Baru:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Proses pengkodean dan integrasi fitur survei ke dalam sistem.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu hingga beberapa bulan tergantung pada kompleksitas.
+  \end{itemize}
+
+  \item \textbf{Pengujian:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Melakukan pengujian menyeluruh terhadap fitur baru untuk memastikan fungsionalitas yang benar dan identifikasi bug.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu tergantung pada cakupan pengujian.
+  \end{itemize}
+
+  \item \textbf{Implementasi Database:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Membuat struktur database untuk menyimpan data survei yang terkumpul.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu tergantung pada kompleksitas struktur database.
+  \end{itemize}
+
+  \item \textbf{Pembuatan Halaman Pelaporan Statistika:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Desain dan pengembangan halaman pelaporan statistika survei.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu tergantung pada kompleksitas desain dan fungsionalitas.
+  \end{itemize}
+
+  \item \textbf{Uji Integrasi dan Kinerja:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Melakukan uji integrasi dan kinerja untuk memastikan fitur baru berinteraksi dengan sistem secara harmonis.
+    \item \textbf{Estimasi Waktu:} Beberapa minggu tergantung pada kompleksitas uji.
+  \end{itemize}
+
+  \item \textbf{Pelatihan Pengguna:}
+  \begin{itemize}
+    \item \textbf{Deskripsi:} Melakukan pelatihan kepada pengguna terkait penggunaan fitur survei.
+    \item \textbf{Estimasi Waktu:} Beberapa hari hingga minggu tergantung pada metode pelatihan dan kompleksitas fitur.
+  \end{itemize}
+\end{enumerate}
+
+Estimasi total waktu implementasi dapat bervariasi tergantung pada keahlian tim pengembangan, kompleksitas perubahan, dan faktor-faktor lainnya. Secara keseluruhan, perkiraan waktu implementasi bisa berkisar dari beberapa bulan hingga setahun, tergantung pada skala dan lingkup perubahan yang diinginkan.
+
+\section*{Analisa}
+\textbf{Analisis Feasibilitas:}
+\begin{itemize}
+  \item \textbf{Ekonomi:} Implementasi fitur survei dapat memberikan nilai tambah signifikan dengan meningkatkan pengumpulan data dan analisis. Biaya pengembangan dan pelatihan dapat diimbangi oleh manfaat yang diperoleh.
+  \item \textbf{Operasional:} Fitur ini dapat diintegrasikan ke dalam operasi ujian mandiri tanpa mengganggu proses eksisting. Pengguna akan memiliki akses mudah untuk mengisi survei sebelum ujian.
+  \item \textbf{Teknis:} Pengembangan dan integrasi teknis fitur survei memerlukan pemahaman yang baik terhadap struktur sistem dan kemampuan teknis tim pengembangan.
+\end{itemize}
+
+\textbf{Analisis Mendetail Modification Request (MR):}
+\begin{itemize}
+  \item \textbf{Deskripsi Perubahan:} Pengembangan dan integrasi fitur survei untuk pengumpulan data sebelum ujian CAT.
+  \item \textbf{Alasan Perubahan:} Meningkatkan kemampuan sistem dalam mengumpulkan wawasan dan data pengguna untuk analisis dan pengambilan keputusan.
+  \item \textbf{Manfaat:} Peningkatan analisis data pengguna, potensi peningkatan personalisasi ujian berdasarkan tanggapan pengguna.
+  \item \textbf{Risiko:} Kemungkinan bug selama integrasi, memerlukan waktu dan upaya pengembangan yang signifikan.
+  \item \textbf{Keterlibatan Pengguna:} Pengguna perlu diberi pelatihan singkat untuk menggunakan fitur survei dengan efektif.
+\end{itemize}
+
+\section*{Desain Maintenance}
+
+\textbf{Bagian untuk Mengelola Survey:}
+\begin{itemize}
+  \item Membuat Survey Baru
+  \item Mengubah Survey yang Ada
+  \item Menghapus Survey
+\end{itemize}
+
+\textbf{Bagian untuk Mengelola Hasil Survey:}
+\begin{itemize}
+  \item Menyimpan Hasil Survey
+  \item Menganalisis Hasil Survey
+\end{itemize}
+
+\subsubsection*{Desain Database:}
+
+\textbf{Tabel Survey:}
+\begin{itemize}
+  \item \textbf{survey\_id:} Kunci utama untuk identifikasi survey.
+  \item \textbf{nama\_survey:} Nama survey untuk memberikan identitas.
+  \item \textbf{deskripsi\_survey:} Deskripsi singkat tentang isi survey.
+  \item \textbf{pertanyaan:} Daftar pertanyaan yang terkait dengan survey.
+\end{itemize}
+
+\textbf{Tabel Hasil Survey:}
+\begin{itemize}
+  \item \textbf{hasil\_id:} Kunci utama untuk identifikasi hasil survey.
+  \item \textbf{survey\_id:} Kunci asing menghubungkan hasil survey dengan survey tertentu.
+  \item \textbf{jawaban\_pertanyaan:} Menyimpan jawaban untuk setiap pertanyaan dalam survey.
+\end{itemize}
+
+
+
+\textbf{Desain Test Cases:}
+\begin{itemize}
+  \item \textbf{Uji Unit:} Fokus pada setiap fungsi baru dalam fitur survei untuk memastikan keberfungsian yang benar.
+  \item \textbf{Uji Integrasi:} Memverifikasi integrasi fitur survei dengan komponen lain di sistem.
+  \item \textbf{Uji Fungsional:} Menjalankan test cases sesuai spesifikasi untuk memastikan fitur survei berjalan dengan benar.
+  \item \textbf{Uji Regresi:} Menguji bagian lain sistem untuk memastikan tidak ada dampak negatif dari perubahan.
+  \item \textbf{Uji Kinerja:} Melakukan uji kinerja untuk memastikan fitur survei tidak mempengaruhi kinerja secara signifikan.
+\end{itemize}
+
+
+\section*{Implementasi}
+
+\textbf{Struktur Kode:}
+
+\textbf{File \texttt{index.js}}
+
+\begin{verbatim}
+const express = require("express");
+const mongoose = require("mongoose");
+const SurveyController = require("./controllers/SurveyController");
+
+const app = express();
+
+// Koneksi ke database MongoDB
+mongoose.connect("mongodb://localhost:27017/surveys", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+// Buat instance dari kelas SurveyController
+const surveyController = new SurveyController();
+
+// Tambahkan rute untuk mengelola survey
+app.post("/surveys", surveyController.createSurvey);
+app.get("/surveys", surveyController.getSurveys);
+app.post("/surveys/:surveyId/participate", surveyController.participateInSurvey);
+app.get("/surveys/:surveyId/results", surveyController.analyzeSurveyResults);
+
+app.listen(3000, () => console.log("Server berjalan di port 3000"));
+\end{verbatim}
+
+\textbf{File \texttt{SurveyController.js}}
+
+\begin{verbatim}
+class SurveyController {
+    createSurvey(req, res) {
+        // Logika untuk membuat survey baru
+    }
+
+    getSurveys(req, res) {
+        // Logika untuk mendapatkan daftar survey
+    }
+
+    participateInSurvey(req, res) {
+        // Logika untuk berpartisipasi dalam survey
+    }
+
+    analyzeSurveyResults(req, res) {
+        // Logika untuk menganalisis hasil survey
+    }
+}
+
+module.exports = SurveyController;
+\end{verbatim}
+
+\textbf{File \texttt{Survey.js}}
+
+\begin{verbatim}
+class Survey {
+    constructor(name, description, questions) {
+        this.name = name;
+        this.description = description;
+        this.questions = questions;
+    }
+}
+
+module.exports = Survey;
+\end{verbatim}
+
+\textbf{Modul-modul Besar yang Digunakan:}
+
+\begin{itemize}
+    \item Express: Framework web untuk Node.js.
+    \item Mongoose: Modul untuk menghubungkan Node.js dengan database MongoDB.
+    \item JWT: Modul untuk menangani autentikasi dan otorisasi.
+\end{itemize}
+
+\textbf{Implementasi:}
+
+implementasi desain kode untuk fitur survey:
+
+\begin{verbatim}
+// Kode implementasi disertakan di sini
+\end{verbatim}
+
+\subsubsection*{Unit Test:}
+% \textbf{Unit Test:}
+
+\textbf{Test Case 1: Memastikan Data Survey Baru Tersimpan ke dalam Database}
+
+\begin{itemize}
+    \item \textbf{Fungsi:} createSurvey()
+    \item \textbf{Deskripsi:} Memastikan bahwa fungsi createSurvey() dapat menyimpan data survey baru ke dalam database dengan benar, termasuk nama survey, deskripsi survey, dan pertanyaan-pertanyaan yang ada dalam survey.
+\end{itemize}
+
+\textbf{Test Case 2: Memastikan Daftar Survey dapat Ditampilkan}
+
+\begin{itemize}
+    \item \textbf{Fungsi:} getSurveys()
+    \item \textbf{Deskripsi:} Memastikan bahwa fungsi getSurveys() dapat menampilkan daftar survey yang ada dengan benar, termasuk nama survey, deskripsi survey, dan tanggal dibuat.
+\end{itemize}
+
+\textbf{Test Case 3: Memastikan Data Hasil Survey Tersimpan ke dalam Database}
+
+\begin{itemize}
+    \item \textbf{Fungsi:} participateInSurvey()
+    \item \textbf{Deskripsi:} Memastikan bahwa fungsi participateInSurvey() dapat menyimpan data hasil survey ke dalam database dengan benar, termasuk jawaban dari setiap pertanyaan dalam survey.
+\end{itemize}
+
+\textbf{Test Case 4: Memastikan Hasil Survey dapat Dianalisis}
+
+\begin{itemize}
+    \item \textbf{Fungsi:} analyzeSurveyResults()
+    \item \textbf{Deskripsi:} Memastikan bahwa fungsi analyzeSurveyResults() dapat menghasilkan hasil survey yang akurat, seperti persentase jawaban untuk setiap pertanyaan.
+\end{itemize}
+
+\textbf{Test Readiness Review:}
+
+\begin{itemize}
+    \item \textbf{Persyaratan Pengujian:} Semua persyaratan pengujian harus terpenuhi.
+    \item \textbf{Implementasi Fitur:} Fitur survey telah diimplementasikan sesuai dengan desain.
+    \item \textbf{Risiko Pengujian:} Risiko-risiko dalam pengujian telah diidentifikasi dan dimitigasi.
+\end{itemize}
+
+Jika semua persyaratan pengujian telah terpenuhi, fitur survey telah diimplementasikan sesuai dengan desain, dan tidak ada risiko yang signifikan, maka fitur survey siap untuk diuji.
+
+% Test cases untuk melakukan unit test pada fitur survey:
+
+% \begin{itemize}
+%     \item Test case untuk memastikan bahwa data survey baru dapat disimpan ke dalam database.
+%     \item ... (Tambahkan test cases lainnya sesuai kebutuhan)
+% \end{itemize}
+
+\textbf{Fungsional Testing}
+
+\begin{enumerate}
+    \item \textbf{Test Case 1: Menyimpan Data Survey Baru ke dalam Database}
+        \begin{itemize}
+            \item \textbf{Fungsi:} createSurvey()
+            \item \textbf{Deskripsi:} Memastikan bahwa fungsi createSurvey() dapat menyimpan data survey baru ke dalam database dengan benar, termasuk nama survey, deskripsi survey, dan pertanyaan-pertanyaan yang ada dalam survey.
+        \end{itemize}
+    
+    \item \textbf{Test Case 2: Menampilkan Daftar Survey yang Ada}
+        \begin{itemize}
+            \item \textbf{Fungsi:} getSurveys()
+            \item \textbf{Deskripsi:} Memastikan bahwa fungsi getSurveys() dapat menampilkan daftar survey yang ada dengan benar, termasuk nama survey, deskripsi survey, dan tanggal dibuat.
+        \end{itemize}
+    
+    \item \textbf{Test Case 3: Menyimpan Data Hasil Survey ke dalam Database}
+        \begin{itemize}
+            \item \textbf{Fungsi:} participateInSurvey()
+            \item \textbf{Deskripsi:} Memastikan bahwa fungsi participateInSurvey() dapat menyimpan data hasil survey ke dalam database dengan benar, termasuk jawaban dari setiap pertanyaan dalam survey.
+        \end{itemize}
+    
+    \item \textbf{Test Case 4: Menganalisis Hasil Survey}
+        \begin{itemize}
+            \item \textbf{Fungsi:} analyzeSurveyResults()
+            \item \textbf{Deskripsi:} Memastikan bahwa fungsi analyzeSurveyResults() dapat menghasilkan hasil survey yang akurat, seperti persentase jawaban untuk setiap pertanyaan.
+        \end{itemize}
+\end{enumerate}
+
+\textbf{Interface Testing}
+
+\begin{enumerate}
+    \item Test Case 5: Menampilkan Formulir untuk Membuat Survey Baru dengan Benar
+    \item Test Case 6: Mengisi Formulir untuk Membuat Survey Baru dengan Benar
+    \item Test Case 7: Mengirim Formulir untuk Membuat Survey Baru dengan Benar
+    \item Test Case 8: Menampilkan Daftar Survey yang Ada dengan Benar
+    \item Test Case 9: Mengurutkan Daftar Survey yang Ada dengan Benar
+    \item Test Case 10: Menampilkan Formulir untuk Berpartisipasi dalam Survey dengan Benar
+    \item Test Case 11: Mengisi Formulir untuk Berpartisipasi dalam Survey dengan Benar
+    \item Test Case 12: Mengirim Formulir untuk Berpartisipasi dalam Survey dengan Benar
+    \item Test Case 13: Menampilkan Hasil Survey dengan Benar
+\end{enumerate}
+
+\textbf{Regression Testing}
+
+\begin{enumerate}
+    \item Test Case 14: Pengguna Mampu Membuat Akun
+    \item Test Case 15: Pengguna Mampu Mengelola Produk
+    \item Test Case 16: Pengguna Mampu Mengelola Stok
+\end{enumerate}
+
+\textbf{Test Readiness Review:}
+
+\begin{itemize}
+    \item \textbf{Persyaratan Pengujian:} Semua persyaratan pengujian harus terpenuhi.
+    \item \textbf{Implementasi Fitur:} Fitur survey telah diimplementasikan sesuai dengan desain.
+    \item \textbf{Risiko Pengujian:} Risiko-risiko dalam pengujian telah diidentifikasi dan dimitigasi.
+\end{itemize}
+
+
+
+Jika semua persyaratan pengujian telah terpenuhi, fitur survey telah diimplementasikan sesuai dengan desain, dan tidak ada risiko yang signifikan, maka fitur survey siap untuk diuji.
+\section*{Acceptence Test}
+\textbf{Acceptance Testing:}
+
+\begin{enumerate}
+    \item \textbf{Test Case 1:} Pengguna dapat membuat survey baru dengan nama, deskripsi, dan pertanyaan yang valid.
+    \item \textbf{Test Case 2:} Pengguna dapat melihat daftar survey yang ada.
+    \item \textbf{Test Case 3:} Pengguna dapat berpartisipasi dalam survey dengan menjawab pertanyaan yang valid.
+    \item \textbf{Test Case 4:} Pengguna dapat melihat hasil survey yang akurat.
+\end{enumerate}
+
+\textbf{Interoperability Testing:}
+
+\begin{enumerate}
+    \item \textbf{Test Case 5:} Pengguna dapat membuat survey baru dengan menggunakan perangkat lunak manajemen pengguna.
+    \item \textbf{Test Case 6:} Sistem dapat dijlankan dengan OS server dan perangkat lunak DBMS yang telah digunakan.
+\end{enumerate}
+
+Test cases di atas dirancang untuk mencakup pengujian fitur survey dalam penggunaan nya dan memastikan keterhubungan yang baik dengan perangkat lunak atau sistem lain  yang mungkin digunakan oleh pengguna.
+
+\section*{Delivery}
+\subsubsection*{Physical Configuration Audit (PCA)}
+
+\textbf{Tujuan:} Menentukan apakah sistem perangkat lunak yang akan dimaintain telah memenuhi persyaratan fisiknya.
+
+\textbf{Output:} Laporan PCA yang berisi hasil analisis risiko terhadap sistem perangkat lunak.
+
+\subsubsection*{VDD (Version Description Document)}
+
+\textbf{Tujuan:} Menentukan apakah sistem perangkat lunak yang akan dimaintain telah memenuhi persyaratan fungsionalnya.
+
+\textbf{Output:} Dokumen VDD yang berisi spesifikasi teknis untuk fitur baru yang akan ditambahkan ke sistem perangkat lunak.
+
+\subsubsection*{Isi PCA Report}
+
+Dalam konteks penambahan fitur survey ke dalam sistem informasi cat pada Universitas X, PCA report dapat mencakup analisis risiko berikut:
+
+\begin{itemize}
+    \item \textbf{Risiko keamanan:}
+    \begin{itemize}
+        \item Pastikan bahwa fitur survey tidak memungkinkan pengguna untuk membuat survey yang mengandung konten berbahaya, seperti konten yang bersifat diskriminatif atau konten yang mengandung kebencian.
+        \item Pastikan bahwa fitur survey tidak memungkinkan pengguna untuk mengakses data survey yang bukan miliknya.
+    \end{itemize}
+    \item \textbf{Risiko kinerja:}
+    \begin{itemize}
+        \item Pastikan bahwa fitur survey tidak akan membuat sistem informasi cat menjadi terlalu lambat.
+        \item Pastikan bahwa fitur survey tidak akan membuat sistem informasi cat menjadi terlalu berat.
+    \end{itemize}
+    \item \textbf{Risiko kesesuaian:}
+    \begin{itemize}
+        \item Pastikan bahwa fitur survey memenuhi semua persyaratan hukum dan peraturan yang berlaku, seperti persyaratan privasi dan persyaratan perlindungan data.
+    \end{itemize}
+\end{itemize}
+
+\section*{Isi VDD}
+
+Dalam konteks penambahan fitur survey ke dalam sistem informasi cat pada Universitas X, VDD dapat mencakup spesifikasi berikut:
+
+\begin{itemize}
+    \item \textbf{Fungsi-fungsi:}
+    \begin{itemize}
+        \item Fitur survey harus dapat melakukan fungsi-fungsi berikut: membuat survey baru, menampilkan daftar survey yang ada, berpartisipasi dalam survey, dan menganalisis hasil survey.
+    \end{itemize}
+    \item \textbf{Persyaratan antarmuka pengguna:}
+    \begin{itemize}
+        \item Formulir untuk membuat survey baru harus mudah digunakan dan dipahami.
+        \item Daftar survey yang ada harus dapat disortir dan difilter.
+        \item Formulir untuk berpartisipasi dalam survey harus mudah digunakan dan dipahami.
+        \item Hasil survey harus disajikan dalam format yang mudah dipahami.
+    \end{itemize}
+    \item \textbf{Persyaratan data:}
+    \begin{itemize}
+        \item Data survey harus disimpan dengan aman.
+        \item Data survey harus dapat diakses oleh pengguna yang berwenang.
+    \end{itemize}
+    \item \textbf{Persyaratan kinerja:}
+    \begin{itemize}
+        \item Fitur survey harus dapat dijalankan secara efisien.
+        \item Fitur survey harus dapat menangani jumlah survey yang besar.
+    \end{itemize}
+\end{itemize}
+
+
+
+PCA report dan VDD adalah dokumen penting yang harus dibuat dalam proses maintenance sistem perangkat lunak. PCA report digunakan untuk memastikan bahwa sistem perangkat lunak yang akan dimaintain telah memenuhi persyaratan fisiknya, sedangkan VDD digunakan untuk memastikan bahwa sistem perangkat lunak yang akan dimaintain telah memenuhi persyaratan fungsionalnya.
+
+Dalam konteks penambahan fitur survey ke dalam sistem informasi cat pada Universitas X, PCA report dan VDD dapat digunakan untuk memastikan bahwa fitur survey baru tersebut memenuhi persyaratan keamanan, kinerja, dan kesesuaian.
+
+
+
+\printbibliography[title=Daftar Pustaka]
+
+
+
+
+\end{document}

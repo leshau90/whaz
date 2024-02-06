@@ -1,0 +1,94 @@
+why software construction is needed??
+
+is a modification such that the software reaches its ultimate usage
+
+ALASAN DIBUTUHKANNYA MAINTENANCE 
+
+memperbaiki kesalahan
+meningkatkan desain
+peningkatan implementasi
+ada instraksi antarmuka dengan perangkat lain (API Access)
+ada perubahan perangkat keras, sehingga perangkat lunak perlu menyesuaikan
+migrasi perangkat lunak -> perangkat lunak sebelumnya diubah
+
+
+kategori dari software maintenance
+
+corrective maintenance
+
+adaptive maintenance -- modifikasi produk perangkat linak yang dilakukan agar perangkat lunak dapat tetap digunakan dengan lingkungan yang berubah, e.g, perubahan sistem operasi sehingga perangkat lunak harus menyesuaikan, perubajan perangkat keras, perubahan database dsb
+
+perfective maintenance
+modifikasi perangkat lunak untuk menyediakan perangkat tambahan untuk pengguna, peningkatan dokumentasi program, dan pengkodean ulang untuk meningkatkan kinerja perangkat lunak atau atribut perangkat lunak lainnya. e.g., penambahan fitur
+
+
+preventive maintenance-- modifikasi perangkat lunak untuk mendeteksi dan memperbaki kesalahan laten dalam perangkat lunak seelum mereka menjadi kesalahan operasional
+
+
+Pengelompokan kategori software maintenance
+
+correction : hanya memperbaiki 
+engancement : meningkatakn kinerja, meningkatkan kemampuan (upgrade) 
+
+		correction			enhancement
+
+proaktif	preventive			prefective
+reaktif		corrective			adaptive
+
+
+
+cost/biaya
+- biasanya lebih besar dari biaya development
+- dipengaruhi faktor teknis maupun non teknis
+- semakin meningkat selagi software dalam proses maintenance
+- software yang relatif tua mungkin membutuhkan biaya yang tinggi
+
+
+Faktor yang mempengaruhi maintenance cost
+
+- statibilitas tim --  biaya pemeliharaan dapat ditekan jika staf yang sama terlibat dalam jangka waktu yang lama
+- tanggung jawab kontraktual -- adakah kontrak yang tertulis dalam perjanjian dengan pengembang software? insentif pengembangan software melakukan maintenance tertera atau tidak, jika tidak maka lebih murah
+- kteramplilan staff -- semakin berpengalaman dan memiliki domain pengetahuan luas maka dapat menekan biaya maintenance
+- usia dan struktur program -- seiring usia program, strukturnya semakin menurun dan menjadi lebih sulit untuk dipahami dan diubah
+
+Software Maintenance Activites Standard Model --techniques 
+Problem and Modification Analysis
+Maintenance Review
+Acceptence
+OR
+retirement and migration
+
+
+other maintenancemodels
+- quieck fix
+- spiral
+- Osbornes's
+
+beberapa aktivitas dalam maintenance
+- pemahaman program 
+- transisi
+- penerimaan/penolakan permintaan maintenance
+- analisis dampak
+- meaintenance service-level agreements and maintenance licenses and contracts
+
+Program Comprehension
+- programmer menghabiskan banyak waktu untuk membaca dan memahami program yang akan diubah
+- dokumentasi yang jelas dan rigkas dapat membantu dalam pemahaman program
+
+Migration : Additional Activities
+Notification of intent
+Parallel Operations
+Notification of completeion
+post operation review
+Data archival
+
+
+Software Maintenance Tools
+Program Slicers
+Static Analyzers
+Dynamic Analyzers
+Data Flow Analyzers
+Cross References
+Dependency Analyzers
+
+

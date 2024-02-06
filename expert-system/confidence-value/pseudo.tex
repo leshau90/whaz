@@ -1,0 +1,67 @@
+\documentclass{article}
+
+\usepackage{algorithm} 
+\usepackage{algpseudocode} 
+\thispagestyle{empty}
+\begin{document} 
+
+\begin{algorithm}
+    \caption*{Perhitungan CF Setiap Penyakit}
+    \begin{algorithmic}[1]
+        \Procedure{Akumulasi CF}{$\mathcal Penyakit$} \Comment asumsi input adalah \emph{array} Penyakit yang tiap elementnya ada Gejala dengan setiap element nya nilai MD dan MB
+        \For  { \textbf{each} $p \in \mathcal Penyakit $}
+        % {Penyakit \textbf{in} Gejala2}
+            \State p.MB = 0
+            \State p.MD = 0
+            \For{ \textbf{each} $g \in p.Gejala $}
+                \State p.MB = p.MB + (g.MD * (1 - p.MB))
+                \State p.MD = p.MD + (g.MB * (1 - p.MD))
+            \EndFor
+            \State penyakit.CF = MB - MD 
+        \EndFor
+        \State Urutkan Penyakit berdasarkan CF terbesar 
+        \State \Return Penyakit \Comment penyakit dengan CF terbesar atau paling diyakini oleh sistem ada di atas
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+
+% \begin{algorithm}
+% 	\caption{PPO} 
+% 	\begin{algorithmic}[1]
+% 		\For {$iteration=1,2,\ldots$}
+% 			\For {$actor=1,2,\ldots,N$}
+% 				\State Run policy $\pi_{\theta_{old}}$ in environment for $T$ time steps
+% 				\State Compute advantage estimates $\hat{A}_{1},\ldots,\hat{A}_{T}$
+% 			\EndFor
+% 			\State Optimize surrogate $L$ wrt. $\theta$, with $K$ epochs and minibatch size $M\leq NT$
+% 			\State $\theta_{old}\leftarrow\theta$
+% 		\EndFor
+% 	\end{algorithmic} 
+% \end{algorithm}
+
+% \begin{algorithm}
+% 	\caption{Game Theory Controller}
+% 	\begin{algorithmic}[1]
+% 		\For {Every time step}
+% 		\State Calculate target seeking command $\mathbf{x}_{tsCmd}$ (Eq.: 3.12)
+% 		\For {All map measurements from $\mathbf{x}_{Map}$}
+% 		\State Denormalize measurement (Eq.: 3.14)
+% 		\State Add margin of safety (Eq.: 3.15)
+% 		\State Calculate altitude difference $\Delta h_{ObsSafe_{j}}$ to aircraft (Eq.: 3.16)
+% 		\If {$\Delta h_{ObsSafe_{j}}>0$}
+% 		\State Add measurement to set of critical measurements $\mathcal{M}_{crit}$ (Eq.: 3.17)
+% 		\EndIf
+% 		\EndFor
+% 		\For {All measurements in $\mathcal{M}_{crit}$}
+% 		\State Calculate local obstacle avoidance vector (Eq.: 3.20)
+% 		\EndFor
+% 		\State Sum over all local avoidance vectors (Eq.: 3.22)
+% 		\State Transform to global coordinate frame to receive $\mathbf{x}_{oaCmd}$ (Eq.: 3.23)
+% 		\State Calculate obstacle avoidance weight $w_{oa}$ based on critical zone weight (Eq.: 3.24)
+% 		\State Calculate target seeking weight $w_{ts}$ as $1-w_{oa}$ (Eq.: 3.13)
+% 		\State Calculate command vector $\mathbf{x}_{HSaCmd}=w_{oa}\mathbf{x}_{oaCmd}+w_{ts}\mathbf{x}_{tsCmd}$ (Eq.: 3.11)
+% 		\EndFor
+% 	\end{algorithmic} 
+% \end{algorithm} 
+\end{document}

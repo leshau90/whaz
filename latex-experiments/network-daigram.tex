@@ -1,0 +1,22 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\usetikzlibrary{babel, positioning, shapes.multipart}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    trinode/.style={
+            circle split,
+            draw,
+            path picture={\draw (path picture bounding box.center)--(path picture bounding box.south);}}]
+
+\node[trinode] (1) {99\nodepart{lower} 99\ \ 99};
+
+\node[trinode, below right=of 1] (2) {99\nodepart{lower} 99\ \ 99};
+
+\node[trinode, above right=of 2] (3) {99\nodepart{lower} 99\ \ 99};
+
+\draw[->] (1)--(2) node[midway, right]{A(1)};
+\draw[->,dashed] (2)--(3);
+\end{tikzpicture}
+\end{document}

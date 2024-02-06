@@ -1,0 +1,335 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1.5cm]{geometry}
+% \usepackage[bahasa]{babel}
+\usepackage[style=apa]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15}\bfseries}{\thesection}{1em}{}
+
+\renewcommand\thesection{\Alph{section}.}
+% \renewcommand\thesubsection{\thesection.\Alph{subsection}}
+\usepackage{lscape}
+\usepackage{setspace} \onehalfspacing
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+% \usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+\usepackage{usebib} 
+\bibinput{main}
+\usepackage{indentfirst}
+\graphicspath{ {./images/} }
+\title{TUGAS }
+
+
+\begin{document}
+% \thispagestyle{empty}
+% \begbin{center}
+%     \textbf{Teknologi Informasi Lanjut}\\
+%     Tugas\\
+%     % Dosen: Dewi Agushinta, Dr
+%     \vspace*{11\baselineskip}
+%     \includegraphics[width=0.4\textwidth,height=0.4\textwidth]{glogo}  \\
+%     \vspace*{11\baselineskip}
+%     disusun boleh:\\
+%     \textbf{Ilman Samhabib (91122010)}\\
+%     \textbf{Universitas Gunadarma}\\
+%     \textbf{2023}\\
+% \end{center}
+% \newpage
+
+\begin{center}
+  \textbf{Manajemen Stratgik dan Sistem Pakar}\\
+  % Dosen: Dewi Agushinta, Dr\\
+  \textbf{Ilman Samhabib (91122010)}\\
+\end{center}
+\subsection*{Soal}
+\noindent
+Analisis SWOT, BCG, PLC dan QSPM untuk sistem informasi yang ditangani di tempat kerja --- Analisa dibawah adalah mengenai sistem CAT yang telah diterapkan dari tahun 2021 di Universitas X
+
+\subsection*{Analisis SWOT}
+\textbf{Kekuatan}
+\begin{itemize}
+  \item Menangani 6000 pendaftar per tahun, tanpa ada masalah yang berarti.
+  \item Menggunakan sistem ujian berbantu komputer untuk 3 sesi setiap hari di beberapa lokasi secara bersamaan.
+  \item Dengan pembagian network LAN yang tepat sistem dapat menangani pendaftar yang lebih banyak
+  \item Menggunakan server Node.js Express yang telah mature
+  \item Svelte.js untuk frontend  yang meng-compile javascript dan dapat diserve dengan cepat, dalam beberapa benchmark hasilnya sangat ringan lebih ringan dari react yang sering dipakai
+  \item Penilaian dengan berbagai macam skenario, seperti salah satunya menilai berdasar soal dengan bobot tertentu, berdasar pada berapa penjawab yang menjawab soal tersebut
+  \item  basis data NoSQL MongoDB untuk mempermudah pengembangan fitur baru yang kerapkali membutuhkan penggunaan struktur data baru.
+
+\end{itemize}
+
+\textbf{Kelemahan}
+\begin{itemize}
+  \item Potensi masalah teknis dengan sistem ujian berbantu komputer.
+  \item Ketergantungan pada jaringan intra LAN kampus untuk pemrosesan data dan penilaian.
+\end{itemize}
+
+\textbf{Peluang}
+\begin{itemize}
+  \item Potensi perbaikan sistem dan skalabilitas.
+  \item Integrasi teknologi yang baru untuk administrasi ujian dan penilaian yang lebih baik.
+  \item Pengembangan Admin support chat, yang dapat digunakan untuk menghubungi Admin secara langsung
+  \item Pengembangan ulang backend server dengan menggunakan rust atau go yang akan menghasilkan server yang lebih efisien dengan memkan resource cpu dan memory yang lebih sedikit
+  \item Live stat, untuk pelaporan secara real time tentang situasi ujian dan performa peserta
+  \item Quesioner survey yang akan diisi peserta sebelum melakukan ujian
+\end{itemize}
+
+\textbf{Ancaman}
+\begin{itemize}
+  \item Risiko downtime atau gangguan sistem selama periode ujian penting.
+  \item Kerentanan keamanan dan reliabilitas dalam jaringan intra LAN.
+\end{itemize}
+
+\subsection*{Analisis BCG}
+Matriks BCG biasanya digunakan untuk menganalia portofolio produk-produk perusahaan, namun dapat disesuaikan untuk menilai berbagai aspek sistem ujian universitas:\\
+
+\textbf{Star (Potensi Pengembangan Tinggi, Jumlah/Pengaruh Pengguna Tinggi)}
+\begin{itemize}
+  \item Sistem CAT yang sudah dapat menangani 6000 pendaftar per tahun tanpa masalah menonjol sebagai Bintang. Ini karena kinerjanya yang sangat baik dan vital bagi keberlanjutan sistem.
+  \item Penggunaan Node.js Express dan Svelte.js memberikan kecepatan dan efisiensi.
+  \item Penggunaan basis data NoSQL MongoDB termasuk dalam kategori ini, yang siap digunakan untuk penambahan fitur tanpa melakukan perubahan yang radikal pada struktur data
+  \item Fitur Quesioner sebelum melakukan ujian untuk mengumpulkan data yang perlu dari peserta pada saat sebelum ujian
+\end{itemize}
+
+\textbf{Question Mark (Potensi Pengembangan Tinggi, Jumlah/Pengaruh Pengguna yang Rendah)}
+\begin{itemize}
+
+  \item Pengembangan ulang \emph{backend} server dengan Rust atau Go . Meskipun memiliki potensi pertumbuhan dan peningkatan efisiensi, masih memerlukan investasi dan pengembangan lebih lanjut. Karena saat ini untuk meringankan load kita dapat mendistribusikan dengan menggunakan server tambahan.
+  \item Live stat pengukur performa untuk melihat log peristiwa ujian secara real time, walau pada saat ini ujian sudah dapat dilihat walau tidak realtime
+
+\end{itemize}
+
+\textbf{Cash Cow (Potensi Pengembangan Rendah, Jumlah/Pengaruh Pengguna Tinggi)}
+\begin{itemize}
+  \item Pengembangan Admin support chat dapat menjadi Cash Cow karena dapat meningkatkan layanan dan memberikan nilai tambah kepada pengguna yang memerlukan dukungan langsung, dengan sedikit modifikasi pada sistem.
+
+\end{itemize}
+
+\textbf{Dog (Potensi Pengembangan Rendah, Jumlah/Pengaruh Pengguna yang Rendah)}
+\begin{itemize}
+  \item Tidak ada elemen dalam analisis yang sepenuhnya cocok dengan kategori "Dog". Semua elemen nampaknya memberikan nilai dan potensi untuk perusahaan.
+\end{itemize}
+
+\subsection*{Analisis PLC}
+Model Siklus Hidup Produk (PLC) biasanya digunakan untuk menganalisis tahapan siklus hidup produk, namun dapat disesuaikan untuk menilai sistem CAT yang digunakan dalam Universitas X:
+
+\textbf{Tahap Pengenalan}
+\begin{itemize}
+  \item Implementasi awal dan pendirian sistem ujian berbantu komputer / CAT (\emph{computer assisted test}).
+\end{itemize}
+
+\textbf{Tahap Pertumbuhan}
+\begin{itemize}
+  \item Pengembangan Admin support chat, integrasi teknologi baru, dan pengembangan ulang \emph{backend} server karena Penggunaan teknologi baru dan pengembangan fitur dapat meningkatkan jumlah pengguna yang dapat di support serta kinerja sistem secara keseluruhan.
+\end{itemize}
+
+\textbf{Tahap Kematangan}
+\begin{itemize}
+  \item Sistem ujian berbantu komputer, server Node.js Express, dan Svelte.js dapat dianggap berada pada tahap Kematangan. Performa yang matang dan handal tetapi memerlukan inovasi dan pembaruan untuk tetap bersaing.
+\end{itemize}
+
+\textbf{Tahap Penurunan}
+\begin{itemize}
+  \item Potensi masalah teknis pada hardware, ketergantungan pada jaringan intra LAN, dan kerentanan keamanan dapat menyebabkan penurunan jika tidak ditangani dengan baik.
+\end{itemize}
+\newpage
+
+% **QSPM (Quantitative Strategic Planning Matrix)**
+
+% Dalam QSPM, kita mengevaluasi faktor-faktor strategis yang telah diidentifikasi dari analisis SWOT dan BCG. Setiap faktor diberikan bobot berdasarkan tingkat kepentingan dan daya tariknya. Berikut adalah QSPM untuk sistem ujian universitas:
+
+% | Faktor Strategis                  | Kunci Sukses (K) | Kelemahan (W) | Peluang (O) | Ancaman (T) | BCG Weight | Attractiveness |
+% |-----------------------------------|------------------|---------------|-------------|-------------|------------|----------------|
+% | Menangani 6000 pendaftar per tahun | 4                | -             | -           | -           | 0.10       | 0.40           |
+% | Sistem CAT yang efisien           | 5                | -             | -           | -           | 0.10       | 0.50           |
+% | Integrasi teknologi baru           | -                | -             | 4           | -           | 0.05       | 0.20           |
+% | Pengembangan Admin support chat    | 3                | -             | 3           | -           | 0.05       | 0.30           |
+% | Pengembangan ulang backend server  | 4                | 3             | 4           | -           | 0.05       | 0.25           |
+% | Live stat                          | -                | -             | 4           | -           | 0.05       | 0.20           |
+% | Quesioner survey                   | 3                | -             | 3           | -           | 0.05       | 0.30           |
+
+% **Attractiveness Score:**
+% \[ \text{Attractiveness} = \sum \left( \text{BCG Weight} \times \text{Attractiveness} \right) \]
+
+% \[ \text{Attractiveness} = (0.10 \times 0.40) + (0.10 \times 0.50) + (0.05 \times 0.20) + (0.05 \times 0.30) + (0.05 \times 0.25) + (0.05 \times 0.20) + (0.05 \times 0.30) \]
+
+% \[ \text{Attractiveness} = 0.04 + 0.05 + 0.01 + 0.015 + 0.0125 + 0.01 + 0.015 = 0.1425 \]
+
+\begin{landscape}
+  \subsection*{QSPM}
+  \begin{tabular}{|p{3cm}|p{2cm} |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{1cm}|p{1cm}|}
+    \hline
+    \textbf{Strategies} & \textbf{Handling Applicants} & \textbf{Computer-assisted Testing} & \textbf{LAN Network} & \textbf{Mature Node.js Express} & \textbf{Svelte.js Frontend} & \textbf{Diverse Assessment} & \textbf{NoSQL MongoDB} & \textbf{Weight} & \textbf{Rating} & \textbf{WAS} \\
+    \hline
+    Improve computer-assisted testing & 4 & 3 & 3 & 3 & 3 & 2 & 3 & 0.14 & 2 & 0.28 \\
+    Enhance LAN network division & 3 & 4 & 4 & 3 & 3 & 2 & 3 & 0.16 & 3 & 0.48 \\
+    Upgrade Node.js Express server & 3 & 3 & 3 & 4 & 4 & 2 & 3 & 0.16 & 4 & 0.64 \\
+    Develop efficient backend (Rust/Go) & 2 & 2 & 2 & 4 & 3 & 2 & 3 & 0.14 & 2 & 0.28 \\
+    Implement Live Stat & 2 & 3 & 3 & 3 & 4 & 2 & 3 & 0.16 & 3 & 0.48 \\
+    Admin support chat development & 3 & 3 & 2 & 3 & 3 & 2 & 3 & 0.16 & 3 & 0.48 \\
+    Pre-exam questionnaire survey & 3 & 2 & 2 & 3 & 3 & 3 & 3 & 0.16 & 3 & 0.48 \\
+    \hline
+    \textbf{Sum Total Attractiveness} & & & & & & & & 1 & & 3.12 \\
+    \hline
+    \end{tabular}
+    \\
+    Skor Total Keseluruhan Daya Tarik telah dihitung untuk setiap strategi. Strategi dengan skor tertinggi (dalam hal ini, "Upgrade Node.js Express server") dianggap paling menarik berdasarkan bobot dan rating yang diberikan.
+  
+
+  
+\end{landscape}  
+\printbibliography[title=Daftar Pustaka]
+
+
+
+
+
+
+% Based on the description provided, the SWOT, BCG, and PLC analyses for the university's computer-assisted test system can be outlined as follows:
+
+% SWOT Analysis
+% - **Strengths:**
+%   - Efficient handling of 6000 applicants per year.
+%   - Utilizes a computer-assisted testing system for 3 sessions each day at multiple locations simultaneously.
+%   - Utilizes a Node.js Express server with Svelte.js for the front end and a MongoDB NoSQL database[3].
+
+% - **Weaknesses:**
+%   - Potential technical issues with the computer-assisted testing system.
+%   - Reliance on the campus' intra LAN for data processing and grading.
+
+% - **Opportunities:**
+%   - Potential for system improvement and scalability.
+%   - Integration of emerging technologies for enhanced test administration and grading.
+
+% - **Threats:**
+%   - Risk of system downtime or malfunctions during critical testing periods.
+%   - Security vulnerabilities within the intra LAN network[5].
+
+% BCG Analysis
+% The BCG matrix is typically used to analyze a company's product portfolio, but it can be adapted to assess the different aspects of the university's test system:
+% - **Stars (High Market Growth, High Market Share):**
+%   - The efficient handling of 6000 applicants per year and the use of modern technologies can be considered as "stars" in the context of the university's test system.
+
+% - **Question Marks (High Market Growth, Low Market Share):**
+%   - Potential areas for improvement and expansion, such as integrating new technologies or enhancing the scalability of the system, can be considered as "question marks."
+
+% - **Cash Cows (Low Market Growth, High Market Share):**
+%   - The established and reliable nature of the system can be considered as "cash cows."
+
+% - **Dogs (Low Market Growth, Low Market Share):**
+%   - Potential technical issues and reliance on the campus' intra LAN for data processing and grading can be considered as "dogs"[2].
+
+% PLC Analysis
+% The Product Life Cycle (PLC) model is typically used to analyze the stages of a product's life cycle, but it can be adapted to assess the university's test system:
+% - **Introduction Stage:**
+%   - The initial implementation and establishment of the computer-assisted test system.
+
+% - **Growth Stage:**
+%   - The system's consistent handling of 6000 applicants per year and potential for improvement and scalability represent the growth stage.
+
+% - **Maturity Stage:**
+%   - The established and reliable nature of the system represents the maturity stage.
+
+% - **Decline Stage:**
+%   - Potential technical issues, reliance on the campus' intra LAN, and security vulnerabilities represent the decline stage[4].
+
+% These analyses provide a comprehensive understanding of the university's test system, highlighting its strengths, weaknesses, opportunities, and threats, as well as its position within the BCG matrix and PLC model.
+
+% Citations:
+% [1] https://www.coursehero.com/file/205871524/SWOT-BCG-and-IE-Matrices-Analysisdocx/
+% [2] https://www.businessnewsdaily.com/5693-bcg-matrix.html
+% [3] https://www.coursehero.com/file/36637312/SWOT-Analysis-and-BCG-Matrix-73371990-1doc/
+% [4] https://www.academia.edu/8739483/BCG_Matrix_SWOT_Analysis_and_Porter_Model
+% [5] https://www.nibusinessinfo.co.uk/content/swot-pestle-and-other-models-strategic-analysis
+
+
+
+% Certainly! Let's break down the report using the BCG Matrix, SWOT analysis, and PLC (Product Life Cycle) analysis for your college entry test information system.
+
+% #BCG Matrix:
+
+% **Stars (High Market Share, High Growth):**
+% - The system has consistently handled the college entry tests for a significant number of applicants each year (approximately 6000).
+% - Efficiently manages multiple test sessions simultaneously across various locations on campus.
+% - Utilizes modern technology stack with Node.js Express for server, Svelte.js for the front end, and MongoDB for the database.
+
+% **Question Marks (Low Market Share, High Growth):**
+% - While the current system is robust, there might be opportunities to explore additional features or improvements to enhance user experience and attract a larger user base.
+% - Consider potential integration with emerging technologies such as AI for adaptive testing, providing personalized assessments.
+
+% **Cash Cows (High Market Share, Low Growth):**
+% - The system has become a stable and integral part of the college entry process, contributing to a steady and reliable income stream.
+% - Routine updates and maintenance can sustain its functionality, ensuring continued revenue generation.
+
+% **Dogs (Low Market Share, Low Growth):**
+% - Given the nature of the system and its critical role in the college entry process, there is limited space for areas with low market share or growth.
+
+% ### SWOT Analysis:
+
+% **Strengths:**
+% - Robust and reliable system architecture with Node.js Express and Svelte.js.
+% - Efficient handling of a large number of test sessions simultaneously.
+% - Intra-campus LAN ensures secure and fast data transfer.
+% - NoSQL MongoDB database offers flexibility and scalability.
+
+% **Weaknesses:**
+% - Limited exploration of emerging technologies for test enhancement.
+% - Potential vulnerability to technical glitches, necessitating a comprehensive disaster recovery plan.
+% - Reliance on a single technology stack, which may limit future adaptability.
+
+% **Opportunities:**
+% - Explore AI integration for adaptive testing and personalized assessments.
+% - Collaborate with educational institutions for potential expansion and adoption.
+% - Enhance user interface and experience for a more intuitive and user-friendly system.
+
+% **Threats:**
+% - Technological obsolescence over time, requiring regular updates and adaptation.
+% - Competition from other testing systems or emerging technologies in the education sector.
+% - Security concerns regarding data transfer and storage.
+
+% ### PLC (Product Life Cycle) Analysis:
+
+% **Introduction:**
+% - The system was introduced to meet the growing demand for efficient and centralized college entry testing.
+% - Initial development and implementation phases ensured basic functionality and reliability.
+
+% **Growth:**
+% - Rapid growth phase with increasing adoption by colleges and universities.
+% - Continuous updates and improvements to meet the expanding user base's evolving needs.
+
+% **Maturity:**
+% - The system has reached maturity with a stable user base and established market presence.
+% - Emphasis on maintaining and optimizing existing features, addressing user feedback.
+
+% **Decline:**
+% - Potential decline as technology evolves or if a more innovative solution emerges.
+% - Mitigation through regular updates, exploring new technologies, and strategic partnerships.
+
+% **Conclusion:**
+% The college entry test information system has been a valuable asset in streamlining the admissions process. By capitalizing on its strengths and addressing weaknesses, the system can continue to thrive. Exploring emerging technologies, enhancing user experience, and staying adaptable are crucial for sustaining its relevance in the ever-evolving education technology landscape.
+
+% \begin{center}
+%   \begin{tabular}{|p{0.5\linewidth}|l|l|l|}
+%   \hline
+%   \multicolumn{1}{|c|}{\textbf{Peluang}} & \multicolumn{1}{c|}{\textbf{Bobot}} & \multicolumn{1}{c|}{\textbf{Rating}} & \multicolumn{1}{c|}{\textbf{Daya Tarik}} \\ \hline
+%   Potensi Perbaikan Sistem dan Skalabilitas & 0.15 & (0.15 x rating) & \\ \hline
+%   Integrasi Teknologi Baru untuk Administrasi Ujian & 0.20 & (0.20 x rating) & \\ \hline
+%   Pengembangan Admin Support Chat & 0.12 & (0.12 x rating) & \\ \hline
+%   Pengembangan Ulang \emph{backend} Server dengan Rust atau Go & 0.18 & (0.18 x rating) & \\ \hline
+%   Adopsi NoSQL MongoDB untuk Mempermudah Pengembangan Fitur Baru & 0.15 & (0.15 x rating) & \\ \hline
+%   Implementasi Live Stat untuk Pelaporan Real-Time & 0.17 & (0.17 x rating) & \\ \hline
+%   Pengenalan Kuesioner Survey sebelum Ujian & 0.03 & (0.03 x rating) & \\ \hline
+%   \end{tabular}
+% \end{center}
+
+
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+% \usepackage[bahasa]{babel}
+\usepackage[style=apa]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15}\bfseries}{\thesection}{1em}{}
+
+\renewcommand\thesection{\Alph{section}.}
+% \renewcommand\thesubsection{\thesection.\Alph{subsection}}
+
+\usepackage{setspace} \onehalfspacing
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+% \usepackage{apacite}
+\usepackage{longtable}
+% \usepackage[backend=biber,style=apa,citestyle=apa,sorting=ynt]{biblatex}
+\usepackage{usebib} 
+\bibinput{main}
+\usepackage{indentfirst}
+\graphicspath{ {./images/} }
+\title{TUGAS }
+
+
+\begin{document}
+% \thispagestyle{empty}
+% \begin{center}
+%     \textbf{Teknologi Informasi Lanjut}\\
+%     Tugas\\
+%     % Dosen: Dewi Agushinta, Dr
+%     \vspace*{11\baselineskip}
+%     \includegraphics[width=0.4\textwidth,height=0.4\textwidth]{glogo}  \\
+%     \vspace*{11\baselineskip}
+%     disusun oleh:\\
+%     \textbf{Ilman Samhabib (91122010)}\\
+%     \textbf{Universitas Gunadarma}\\
+%     \textbf{2023}\\
+% \end{center}
+% \newpage
+
+\begin{center}
+    \textbf{Tugas Teknologi Informasi Lanjut}\\
+    % Dosen: Dewi Agushinta, Dr\\
+    \textbf{Ilman Samhabib (91122010)}\\
+\end{center}
+\subsubsection*{Soal}
+\noindent
+\emph{(Kasus 2 Nomor 1)} Relate the bank's problems to its computer system --- Hubungkan permasalahan pada Bank dengan sistem komputer yang dimilikinya
+\subsubsection*{Jawaban}
+
+Masalah Utama yang dihadapi oleh bank tersebut adalah sistem komputer (\emph{Online Transaction Processing} / OLTP) yang ada tidak dapat memproses transaksi bank yang mereka layani dengan cepat dan effisien atau sistem tidak \emph{reliable}. Masalah ini disebabkan oleh sistem yang sudah berumur 10 tahun yang tidak didesain dengan baik  terutama dalam hal menghandle transaksi yang terus bertambah seiring dengan waktu. Sistem yang tidak fleksibel dengan perkembangan terkini ini (\emph{rigid}), pernah membuat bank terkena penipuan sebesar 43.8 juta dolar pada pasar penukaran valuta asing dan juga pernah membuat bank tidak dapat memberikan pelayanan selama 32 jam, semua ini dikarenakan sistem komputer tidak dapat meengeksekusi transaksi-transaksi dan juga rusaknya (\emph{breakdowns}) komputer
+
+Masalah berikutnya yang dihadapi bank ini adalah ketergantungan dengan vendor penyedia OLTP dan support dari vendor tersebut yang tidak memadai, ditambah lagi dengan harga / \emph{cost} untuk me-mantain  dan mengupgrade sistem lama dari vendor tersebut yang sangat mahal. Pada awalnya pihak eksekutif bank bersedia mengupgrade sistem yang ada dengan biaya 7.5 juta dolar (pada akhir semester 1990 dan awal semester 1991), tetapi pada semester selanjutnya pihak vendor OLTP menyatakan tidak dapat memantain jika tidak mengupgrade \emph{hardware / host computer}  dengan biaya sebesar 11.3 juta dolar. Dana atau cost sebesar itu akan membuat bank merugi secara \emph{long term} ke depan
+
+Hal diatas membawa Mr. Song pada kesimpulan, tidak ada jalan lain selain harus men downsizing OLTP, atau lebih tepat nya mengganti \emph{architecture} sehingga dapat memanfaat banyak device yang heterogen. Tetapi \emph{OLTP downsizing} untuk ini belum pernah dilakukan karena belum pernah ada bank yang sukses melakukan \emph{downsizing} ini pada 80an dan 90an dan \emph{OLTP downsizing} ini walau inovati tapi juga sangat tinggi resiko nya karena erat kaitannya dengan transaksi kritikal nasabah bank tersebut, kesalahan sedikit dapat merusak kredibilitas bank tersebut. 
+
+
+
+
+% The problems faced by the Kwangju Bank included financial losses due to a foreign exchange fraud, a 32-hour halt in banking services due to computer problems, and the inability of the original information system to respond to the market quickly. The system was rigid, frequently broke down, and lacked satisfactory vendor support, leading to the decision to overhaul the system. The bank's inability to set its own business strategies and the growing expenses on information systems posed a threat to its survival. The decision to downsize the OLTP system was driven by the need for the bank to survive in the new global market and gain control over its future. The bank's operations were hindered by its computer systems and vendors, and the centralized information system could not be reformed easily without drastic measures. The risks and opportunities of downsizing an OLTP system in a bank were significant, as it was an innovative but highly risky project that no one had successfully implemented before.
+
+% % Citations:
+% % [1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/5119831/77fd857e-ce67-4edf-9f7b-24691ea33f19/Soal Kasus TILanjut-6-11.pdf
+
+
+% \begin{enumerate}
+%   \item \textbf{Sistem Informasi Tidak Terkini dan Kaku:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Sistem informasi asli, yang dikembangkan sepuluh tahun lalu, menjadi kaku dan tidak dapat menyesuaikan diri dengan tuntutan pasar yang berkembang.
+%     \end{itemize}
+
+%   \item \textbf{Masalah Dukungan Vendor:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Dukungan yang tidak memuaskan dari vendor Amerika dan Jepang menghambat kemampuan bank untuk merespons dengan cepat perubahan pasar.
+%     \end{itemize}
+
+%   \item \textbf{Gangguan Operasional:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Peristiwa seperti penipuan pertukaran valuta asing yang signifikan dan masalah komputer menyoroti kerentanan dalam sistem operasional dan keamanan bank.
+%     \end{itemize}
+
+%   \item \textbf{Kesulitan Keuangan:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Kerugian, terutama penipuan pertukaran valuta asing sebesar 43,8 juta dolar pada tahun 1989, menyumbang pada situasi keuangan yang berisiko bagi bank.
+%     \end{itemize}
+
+%   \item \textbf{Tidak Mampu Bersaing di Pasar Global:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Kelemahan dalam sistem informasi yang ada menghambat daya saing bank terhadap bank asing di pasar global.
+%     \end{itemize}
+
+%   \item \textbf{Pengeluaran yang Meningkat pada Sistem Informasi:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Pengeluaran pada sistem informasi melampaui pertumbuhan pendapatan, menimbulkan tantangan keuangan bagi bank.
+%     \end{itemize}
+
+%   \item \textbf{Kebutuhan untuk Penyesuaian Strategi Bisnis:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Sistem informasi terpusat tidak dengan mudah mendukung bank dalam menetapkan dan melaksanakan strategi bisnisnya.
+%     \end{itemize}
+
+%   \item \textbf{Risiko Kegagalan Sistem:}
+%     \begin{itemize}
+%       \item \textbf{Penyebab:} Kurangnya fleksibilitas dan seringnya kerusakan, khususnya pada sistem OLTP yang kritis, menimbulkan risiko terhadap kredibilitas bank.
+%     \end{itemize}
+% \end{enumerate}
+
+% The bank problem in the case study is related to the inefficiency and unreliability of the original information system, which led to serious financial and operational issues for the Kwangju Bank. The bank's computer problems resulted in significant financial losses, including a \$43.8 million loss in a foreign exchange fraud and a 32-hour halt in banking services due to computer problems. The original information system, developed about 10 years prior, faced issues such as rigidity, frequent system breakdowns, and unsatisfactory vendor support. The bank's top executives decided to overhaul the information systems, leading to the initiation of the bank information system project.
+
+% The bank's computer system was unable to respond to the market quickly, hindering the bank's ability to set its own business strategies. The system's rigidity and frequent breakdowns affected the bank's credibility and its ability to compete in the global market. The bank's expenditure on information systems was growing faster than its income, posing a threat to its survival. The chairman of the board, Mr. Song, concluded that downsizing the OLTP system was the best long-term solution for the bank, as it would enable the bank to play in the global market and compete against foreign banks. The decision to downsize the information system was driven by the need for the bank to survive in the new global market and gain control over its future.
+
+% The problem with the bank's computer system was exacerbated by the lack of flexibility to develop new products, support the bank's new business strategy, and serve customers effectively. The old information systems were designed from the bank's perspective, not from the customer's, and were not capable of providing banking services wherever and whenever the customers wanted. The new information system aimed to address these shortcomings by providing better service to customers in terms of timeliness and quality, reducing expenses, and pursuing new business strategies more effectively.
+
+% The bank's reengineering was closely related to the change in the computer system, as the reengineering project simplified transaction processes by using commercial packages and dramatically reduced the cost of program development from \$12.5 million to \$2.5 million. The success factors of the information system project included the chairman of the board's vision and strong leadership, which played a crucial role in overcoming obstacles and doubts from various sources. The new information system brought benefits for both the customers and the bank, including improved transaction processing speed, extended service hours, reduced expenses, and greater flexibility and freedom from vendor domination.
+
+% The client/server approach was considered better than upgrading the mainframe because it provided greater flexibility, minimized maintenance and upgrade costs, and allowed easier adoption of new technology. The significance of global competition in the IT decisions was related to the bank's need to compete against foreign banks and gain control over its future. Downsizing an OLTP system in a bank posed risks, as it was an innovative but highly risky project that no one had successfully implemented before. However, it also presented opportunities for the bank to survive in the new global market and gain control over its future.
+
+% Citations:
+% [1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/5119831/77fd857e-ce67-4edf-9f7b-24691ea33f19/Soal Kasus TILanjut-6-11.pdf
+
+\printbibliography[title=Daftar Pustaka]
+
+\end{document}
